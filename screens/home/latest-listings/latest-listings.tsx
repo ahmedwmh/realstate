@@ -89,10 +89,6 @@ export default function LatestListings() {
     };
   };
 
-  if (loading) {
-    return null;
-  }
-
   return (
     <section className={cn("section")}>
       <div className={cn("container")}>
@@ -112,35 +108,60 @@ export default function LatestListings() {
         </div>
 
         <div className={styles.wrapper}>
-          <Dropdown
-            className={styles.dropdown}
-            options={dropdownOptions}
-            value={selectedCategory}
-            onChange={handleDropdownChange}
-          />
-          <div className={styles.tabs}>
-            {categories.map((cat) => (
-              <div
-                key={cat}
-                className={cn("label-medium", styles.tab, {
-                  [styles.active]: cat === selectedCategory,
-                })}
-                onClick={() => setSelectedCategory(cat)}
-              >
-                {getCategoryLabel(cat)}
+          {loading ? (
+            <>
+              <div className={styles.skeletonTabs} />
+              <div className={styles.listings}>
+                {[...Array(6)].map((_, index) => (
+                  <div key={index} className={styles.skeletonCard}>
+                    <div className={styles.skeletonCardImage} />
+                    <div className={styles.skeletonCardContent}>
+                      <div className={styles.skeletonCardTitle} />
+                      <div className={styles.skeletonCardDescription} />
+                      <div className={styles.skeletonCardDescription} style={{ width: "80%" }} />
+                      <div className={styles.skeletonCardFeatures}>
+                        <div className={styles.skeletonFeature} />
+                        <div className={styles.skeletonFeature} />
+                        <div className={styles.skeletonFeature} />
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          ) : (
+            <>
+              <Dropdown
+                className={styles.dropdown}
+                options={dropdownOptions}
+                value={selectedCategory}
+                onChange={handleDropdownChange}
+              />
+              <div className={styles.tabs}>
+                {categories.map((cat) => (
+                  <div
+                    key={cat}
+                    className={cn("label-medium", styles.tab, {
+                      [styles.active]: cat === selectedCategory,
+                    })}
+                    onClick={() => setSelectedCategory(cat)}
+                  >
+                    {getCategoryLabel(cat)}
+                  </div>
+                ))}
+              </div>
 
-          <div className={styles.listings}>
-            {filteredProjects.length === 0 ? (
-              <div className={styles.emptyState}>{t("listings.noProjects")}</div>
-            ) : (
-              filteredProjects.map((project) => (
-                <PropertyListing key={project.id} item={convertProjectToItem(project)} />
-              ))
-            )}
-          </div>
+              <div className={styles.listings}>
+                {filteredProjects.length === 0 ? (
+                  <div className={styles.emptyState}>{t("listings.noProjects")}</div>
+                ) : (
+                  filteredProjects.map((project) => (
+                    <PropertyListing key={project.id} item={convertProjectToItem(project)} />
+                  ))
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>

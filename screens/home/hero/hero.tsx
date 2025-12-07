@@ -177,11 +177,32 @@ export default function Hero() {
       : "";
   }, [currentSlideData, language]);
 
-  // Show loading curtain while fetching or loading images
+  // Show loading skeleton while fetching or loading images
   if (loading || heroSlides.length === 0) {
     return (
-      <>
-        <Curtain />
+      <section className={cn("section", styles.section)}>
+        <div className={cn("container", styles.container)}>
+          <div className={styles.heroWrapper}>
+            {/* Left Side - Image Slider Skeleton */}
+            <div className={styles.sliderContainer}>
+              <div className={styles.slider}>
+                <div className={styles.skeletonImage} />
+              </div>
+            </div>
+
+            {/* Right Side - Content Skeleton */}
+            <div className={styles.contentContainer}>
+              <div className={styles.content}>
+                <div className={styles.skeletonTitle} />
+                <div className={styles.skeletonDescription} />
+                <div className={styles.skeletonDescription} style={{ width: "80%" }} />
+                <div className={styles.contentImage}>
+                  <div className={styles.skeletonImage} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {error && (
           <div className={styles.errorMessage}>
             <p>{error}</p>
@@ -194,7 +215,7 @@ export default function Hero() {
             </button>
           </div>
         )}
-      </>
+      </section>
     );
   }
 
