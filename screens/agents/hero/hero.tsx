@@ -13,7 +13,7 @@ export default function Hero() {
           <HeroTitle size="hero-lg">Meet Our Agents</HeroTitle>
           <div className={cn("paragraph-medium", styles.subtitle)}>
             Our dedicated team of real estate professionals is here to help you
-            find your perfect home in HeavenHomes.
+            find your perfect home in Al Hulool Al Muthla.
           </div>
         </div>
 

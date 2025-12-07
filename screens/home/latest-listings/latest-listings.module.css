@@ -1,3 +1,8 @@
+.section {
+    position: relative;
+    z-index: 1;
+}
+
 .content {
     display: flex;
     align-items: center;
@@ -42,10 +47,18 @@
 }
 
 @media (max-width: 768px) {
+    .section {
+        padding-top: 80px;
+    }
+
     .content {
         flex-direction: column;
         align-items: flex-start;
         gap: 24px;
+    }
+
+    .wrapper {
+        margin-top: 60px;
     }
 
     .listings {
@@ -55,6 +68,10 @@
 }
 
 @media (max-width: 480px) {
+    .section {
+        padding-top: 64px;
+    }
+
     .dropdown {
         display: block;
     }
@@ -63,7 +80,12 @@
         display: none;
     }
 
+    .wrapper {
+        margin-top: 48px;
+    }
+
     .listings {
         grid-template-columns: 1fr;
+        margin-top: 32px;
     }
 }

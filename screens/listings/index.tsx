@@ -1,11 +1,15 @@
+"use client";
+
 import Layout from "@/components/Layout";
 import React from "react";
-import Hero from "./hero";
+import ListingsHero from "./hero";
+import ProjectsList from "./projects-list";
 
 export default function ListingsPage() {
   return (
     <Layout>
-      <Hero />
+      <ListingsHero />
+      <ProjectsList />
     </Layout>
   );
 }

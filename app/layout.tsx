@@ -4,25 +4,69 @@ import cn from "classnames";
 import localFont from "next/font/local";
 import { Providers } from "./providers";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter" 
+});
 
-const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
+const dmSans = DM_Sans({ 
+  subsets: ["latin"], 
+  variable: "--font-dm-sans" 
+});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta-sans",
 });
 
-const authorSemibold = localFont({
-  src: "../public/fonts/Author-Semibold.otf",
+// English font
+const lbcRegular = localFont({
+  src: "../public/fonts/lbc-regular-.otf",
+  variable: "--font-lbc-regular",
+  weight: "400",
+});
+
+// Arabic fonts
+const ibmPlexArabicThin = localFont({
+  src: "../public/fonts/IBMPlexSansArabic-Thin.ttf",
+  variable: "--font-ibm-arabic-thin",
+  weight: "100",
+});
+
+const ibmPlexArabicExtraLight = localFont({
+  src: "../public/fonts/IBMPlexSansArabic-ExtraLight.ttf",
+  variable: "--font-ibm-arabic-extralight",
+  weight: "200",
+});
+
+const ibmPlexArabicLight = localFont({
+  src: "../public/fonts/IBMPlexSansArabic-Light.ttf",
+  variable: "--font-ibm-arabic-light",
+  weight: "300",
+});
+
+const ibmPlexArabicRegular = localFont({
+  src: "../public/fonts/IBMPlexSansArabic-Regular.ttf",
+  variable: "--font-ibm-arabic-regular",
+  weight: "400",
+});
+
+const ibmPlexArabicMedium = localFont({
+  src: "../public/fonts/IBMPlexSansArabic-Medium.ttf",
+  variable: "--font-ibm-arabic-medium",
+  weight: "500",
+});
+
+const ibmPlexArabicSemiBold = localFont({
+  src: "../public/fonts/IBMPlexSansArabic-SemiBold.ttf",
+  variable: "--font-ibm-arabic-semibold",
   weight: "600",
-  variable: "--font-author-semibold",
 });
 
 export const metadata = {
-  title: "HeavenHomes - Real Estate Website Template",
+  title: "Al Hulool Al Muthla - Real Estate Website Template",
   description:
-    "heavenhomes is a real estate website template that helps you to find the best property for you.",
+    "Al Hulool Al Muthla is a real estate website template that helps you to find the best property for you.",
 };
 
 type LayoutProps = {
@@ -31,13 +75,19 @@ type LayoutProps = {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <body
         className={cn(
           inter.variable,
           dmSans.variable,
           plusJakartaSans.variable,
-          authorSemibold.variable,
+          lbcRegular.variable,
+          ibmPlexArabicThin.variable,
+          ibmPlexArabicExtraLight.variable,
+          ibmPlexArabicLight.variable,
+          ibmPlexArabicRegular.variable,
+          ibmPlexArabicMedium.variable,
+          ibmPlexArabicSemiBold.variable,
         )}
       >
         <Providers>{children}</Providers>

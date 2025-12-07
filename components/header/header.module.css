@@ -11,6 +11,11 @@
     transition: all 0.3s ease-in-out;
 }
 
+.header.white_header {
+    background-color: var(--white);
+    backdrop-filter: blur(10px);
+}
+
 .header.sticky {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.6);
@@ -66,8 +71,63 @@
     color: var(--white);
 }
 
+.button_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 .button_wrapper .burger {
     display: none;
+}
+
+.language_switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.lang_button {
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-family: var(--font-dm-sans);
+}
+
+.lang_button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lang_active {
+    background-color: var(--white) !important;
+    color: var(--slate-900) !important;
+}
+
+.black_lang {
+    color: var(--black);
+}
+
+.black_lang.lang_active {
+    background-color: var(--slate-900) !important;
+    color: var(--white) !important;
+}
+
+.sticky_lang {
+    color: var(--white);
+}
+
+.sticky_lang.lang_active {
+    background-color: var(--white) !important;
+    color: var(--slate-900) !important;
 }
 
 .black_link {
@@ -90,12 +150,32 @@
     color: var(--black);
 }
 
+.orange_button {
+    color: var(--orange-600) !important;
+    box-shadow: 0 0 0 1.5px var(--orange-600) inset !important;
+    background: var(--white) !important;
+}
+
+.orange_button:hover {
+    background: var(--orange-600) !important;
+    box-shadow: 0 0 0 2px var(--orange-600) inset !important;
+    color: var(--white) !important;
+}
+
+.orange_button svg {
+    stroke: var(--orange-600) !important;
+}
+
+.orange_button:hover svg {
+    stroke: var(--white) !important;
+}
+
 .sticky_button {
     color: var(--white);
 }
 
 .container .black_logo {
-    color: var(--black);
+    /* Logo image doesn't need color change */
 }
 
 .container .black_burger:before,
@@ -109,7 +189,7 @@
 }
 
 .container .sticky_logo {
-    color: var(--white);
+    /* Logo image doesn't need color change */
 }
 
 @media (max-width: 768px) {
@@ -170,10 +250,8 @@
         animation-delay: 1.1s;
     }
 
-    .button_wrapper {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+    .language_switcher {
+        order: -1;
     }
 
     .button_wrapper .burger {

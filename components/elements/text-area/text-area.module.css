@@ -7,6 +7,17 @@
     color: var(--black);
     padding: 16px;
     transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+    text-align: inherit;
+}
+
+[dir="rtl"] .textarea {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="ltr"] .textarea {
+    text-align: left;
+    direction: ltr;
 }
 
 .textarea::placeholder {

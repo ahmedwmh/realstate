@@ -8,20 +8,19 @@ import Burger from "../burger";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/context/language-context";
 
 const nav_links = [
-  { title: "Home", href: "/" },
-  { title: "About us", href: "/about" },
-  { title: "Listings", href: "/listings" },
-  { title: "Agents", href: "/agents" },
+  { titleKey: "header.home", href: "/" },
+  { titleKey: "header.aboutUs", href: "/about" },
+  { titleKey: "header.listings", href: "/listings" },
+  { titleKey: "header.news", href: "/news" },
 ];
 
 const blackHeaderPages = [
-  "/listings",
-  "/agents",
+  "/",
   "/contact",
   "/property-detail",
-  "/agent",
 ];
 
 export default function Header() {
@@ -29,6 +28,7 @@ export default function Header() {
   const [mobile, setMobile] = React.useState(false);
   const [sticky, setSticky] = React.useState(false);
   const pathname = usePathname();
+  const { language, setLanguage, t, dir } = useLanguage();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -97,6 +97,7 @@ export default function Header() {
       className={cn(styles.header, {
         [styles.sticky]: sticky,
         [styles.border_header]: isBlackHeader,
+        [styles.white_header]: pathname === "/" && !sticky,
       })}
     >
       <div className={cn("container", styles.container)}>
@@ -127,21 +128,45 @@ export default function Header() {
                   [styles.sticky_link]: sticky,
                 })}
               >
-                {link.title}
+                {t(link.titleKey)}
               </Link>
             ))}
           </div>
         </motion.nav>
 
         <div className={styles.button_wrapper}>
+          <div className={styles.language_switcher}>
+            <button
+              className={cn(styles.lang_button, {
+                [styles.lang_active]: language === "en",
+                [styles.black_lang]: isBlackHeader && !(mobile && visibleNav),
+                [styles.sticky_lang]: sticky,
+              })}
+              onClick={() => setLanguage("en")}
+            >
+              EN
+            </button>
+            <button
+              className={cn(styles.lang_button, {
+                [styles.lang_active]: language === "ar",
+                [styles.black_lang]: isBlackHeader && !(mobile && visibleNav),
+                [styles.sticky_lang]: sticky,
+              })}
+              onClick={() => setLanguage("ar")}
+            >
+              AR
+            </button>
+          </div>
+
           <Link
             href="/contact"
             className={cn("button-stroke-small", styles.button, {
               [styles.black_button]: isBlackHeader && !(mobile && visibleNav),
+              [styles.orange_button]: pathname === "/" && !sticky && !(mobile && visibleNav),
               [styles.sticky_button]: sticky,
             })}
           >
-            Get In Touch
+            {t("header.getInTouch")}
           </Link>
 
           <Burger

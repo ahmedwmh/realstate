@@ -1,74 +1,57 @@
 .section {
-    padding-top: 148px;
+    background-image: url("/images/video.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    position: relative;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: start;
-    gap: 48px;
-}
-
-.filters {
-    background-color: var(--slate-100);
-    padding: 48px;
-    border-radius: 24px;
-    border: 1px solid var(--slate-200);
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: flex-end;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 80px;
 }
 
-.container .textfield {
-    background-color: var(--white);
-}
-
-.container .dropdown {
-    background-color: var(--white);
-}
-
-.textfields {
-    display: grid;
-    gap: 8px;
-}
-
-.textButton {
-    text-align: center;
-    font-weight: 500;
-}
-
-.button {
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.listings {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 24px;
-    grid-row-gap: 48px;
+.title {
+    z-index: 1;
+    color: var(--white);
+    font-family: var(--font-lbc-regular);
 }
 
-@media (max-width: 1024px) {
-    .listings {
-        grid-template-columns: 1fr;
-    }
+[dir="rtl"] .title {
+    font-family: var(--font-ibm-arabic-semibold);
 }
 
 @media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
+    .section {
+        height: 50vh;
     }
 
-    .listings {
-        grid-template-columns: repeat(2, 1fr);
+    .container {
+        padding-bottom: 60px;
     }
 }
 
 @media (max-width: 480px) {
-    .filters {
-        padding: 24px;
+    .section {
+        height: 40vh;
     }
-    .listings {
-        grid-template-columns: 1fr;
+
+    .container {
+        padding-bottom: 40px;
     }
 }

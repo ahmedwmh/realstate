@@ -31,16 +31,12 @@ export default function PropertyListing({ item }: PropertyListingProps) {
         className={styles.img_holder}
       >
         <Image
-          src={item.images && item.images[0]}
+          src={item.images && item.images[0] ? item.images[0] : "/images/intro.webp"}
           alt={item.title}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          unoptimized={item.images?.[0]?.startsWith("http")}
         />
-
-        <div className={cn("paragraph-small", styles.listing_price)}>
-          {item.price}
-        </div>
       </Link>
       <div className={styles.listing_wrapper}>
         <div className={cn("heading-6", styles.listing_title)}>

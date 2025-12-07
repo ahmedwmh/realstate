@@ -93,7 +93,7 @@ export default function Footer() {
               Building Dreams, One Home at a Time.
             </Heading>
             <div className={cn("subheading-small", styles.email)}>
-              HEAVENHOMES@INFO.COM
+              INFO@ALHULOOL-ALMUTHLA.COM
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function Footer() {
             </div>
 
             <div className={cn("paragraph-small", styles.copyright)}>
-              © 2024 Elektra. All rights reserved.
+              © {new Date().getFullYear()} Al Hulool Al Muthla. All rights reserved.
             </div>
           </div>
 

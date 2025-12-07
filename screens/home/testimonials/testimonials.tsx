@@ -13,21 +13,21 @@ const testimonials = [
     image: "/images/testimonials/john-lisa.webp",
     name: "John and Lisa Anderson",
     span: "Happy Homeowners",
-    text: "HeavenHomes helped us find our dream home. We were able to find a home that was perfect for our family. We are so grateful for their help and would recommend them to anyone looking for a home.",
+    text: "Al Hulool Al Muthla helped us find our dream home. We were able to find a home that was perfect for our family. We are so grateful for their help and would recommend them to anyone looking for a home.",
   },
   {
     id: 2,
     image: "/images/testimonials/sarah-michael.webp",
     name: "Tom and Jane Smith",
     span: "Happy Homeowners",
-    text: "We were so happy with the service we received from HeavenHomes. They were able to help us find a home that was perfect for our family. We would recommend them to anyone looking for a home.",
+    text: "We were so happy with the service we received from Al Hulool Al Muthla. They were able to help us find a home that was perfect for our family. We would recommend them to anyone looking for a home.",
   },
   {
     id: 3,
     image: "/images/testimonials/emily-david.webp",
     name: "Emily and David Brown",
     span: "Happy Homeowners",
-    text: "Working with HeavenHomes was a great experience. They were able to help us find a home that was perfect for our family. We would recommend them to anyone looking for a home.",
+    text: "Working with Al Hulool Al Muthla was a great experience. They were able to help us find a home that was perfect for our family. We would recommend them to anyone looking for a home.",
   },
 ];
 

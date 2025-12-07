@@ -8,3 +8,13 @@
     display: flex;
     gap: 8px;
 }
+
+/* RTL Support */
+[dir="rtl"] .form {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .rowFields {
+    direction: rtl;
+}

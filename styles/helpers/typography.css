@@ -6,9 +6,9 @@
 .heading-4,
 .heading-5,
 .heading-6 {
-    font-family: var(--font-plus-jakarta-sans);
+    font-family: var(--font-lbc-regular);
     color: var(--n900);
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .hero-lg {
@@ -63,112 +63,112 @@
     font-size: 20px;
     line-height: 24px;
     letter-spacing: 1.2px;
-    font-family: var(--font-inter);
-    font-weight: 500;
+    font-family: var(--font-lbc-regular);
+    font-weight: 400;
 }
 
 .subheading-large {
     font-size: 18px;
     line-height: 24px;
     letter-spacing: 1.2px;
-    font-family: var(--font-inter);
-    font-weight: 500;
+    font-family: var(--font-lbc-regular);
+    font-weight: 400;
 }
 
 .subheading-medium {
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 1.2px;
-    font-family: var(--font-inter);
-    font-weight: 500;
+    font-family: var(--font-lbc-regular);
+    font-weight: 400;
 }
 
 .subheading-small {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.8px;
-    font-family: var(--font-inter);
-    font-weight: 500;
+    font-family: var(--font-lbc-regular);
+    font-weight: 400;
 }
 
 .subheading-x-small {
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.8px;
-    font-family: var(--font-inter);
-    font-weight: 500;
+    font-family: var(--font-lbc-regular);
+    font-weight: 400;
 }
 
 .paragraph-2x-large {
     font-size: 24px;
     line-height: 40px;
     letter-spacing: -0.44px;
-    font-family: var(--font-inter);
+    font-family: var(--font-lbc-regular);
 }
 
 .paragraph-x-large {
     font-size: 20px;
     line-height: 32px;
     letter-spacing: -0.32px;
-    font-family: var(--font-inter);
+    font-family: var(--font-lbc-regular);
 }
 
 .paragraph-large {
     font-size: 18px;
     line-height: 32px;
     letter-spacing: -0.26px;
-    font-family: var(--font-inter);
+    font-family: var(--font-lbc-regular);
 }
 
 .paragraph-medium {
     font-size: 16px;
     line-height: 28px;
     letter-spacing: -0.18px;
-    font-family: var(--font-inter);
+    font-family: var(--font-lbc-regular);
 }
 
 .paragraph-small {
     font-size: 14px;
     line-height: 24px;
     letter-spacing: -0.08px;
-    font-family: var(--font-inter);
+    font-family: var(--font-lbc-regular);
 }
 
 .paragraph-x-small {
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0px;
-    font-family: var(--font-inter);
+    font-family: var(--font-lbc-regular);
 }
 
 .label-large {
-    font-family: var(--font-plus-jakarta-sans);
+    font-family: var(--font-lbc-regular);
     font-size: 18px;
     line-height: 24px;
     letter-spacing: -0.24px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .label-medium {
-    font-family: var(--font-plus-jakarta-sans);
+    font-family: var(--font-lbc-regular);
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.18px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .label-small {
-    font-family: var(--font-plus-jakarta-sans);
+    font-family: var(--font-lbc-regular);
     font-size: 14px;
     line-height: 20px;
     letter-spacing: -0.08px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .label-x-small {
-    font-family: var(--font-plus-jakarta-sans);
+    font-family: var(--font-lbc-regular);
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0px;
-    font-weight: 600;
+    font-weight: 400;
 }

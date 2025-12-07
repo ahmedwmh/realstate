@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import styles from "./checkbox.module.css";
-import icons from "../../../constants/icons";
+import { Checkmark } from "../../../constants/icons";
 
 export default function Checkbox({ isChecked, onChange, className }) {
   return (
@@ -12,7 +12,7 @@ export default function Checkbox({ isChecked, onChange, className }) {
       })}
       onClick={onChange}
     >
-      {icons.Checkmark}
+      {Checkmark}
     </button>
   );
 }

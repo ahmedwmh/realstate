@@ -4,12 +4,14 @@ import React from "react";
 import Curtain from "./curtain";
 import Footer from "./footer";
 import Header from "./header";
+import { useLanguage } from "@/context/language-context";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 export default function Layout({ children }: LayoutProps) {
+  const { dir } = useLanguage();
   const [showCurtain, setShowCurtain] = React.useState<boolean>(false);
 
   React.useEffect(() => {
@@ -22,11 +24,11 @@ export default function Layout({ children }: LayoutProps) {
   }, []);
 
   return (
-    <>
+    <div dir={dir}>
       {showCurtain && <Curtain />}
       <Header />
       {children}
       <Footer />
-    </>
+    </div>
   );
 }

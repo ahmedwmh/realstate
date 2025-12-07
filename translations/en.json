@@ -1,0 +1,211 @@
+{
+  "common": {
+    "viewAll": "View All Listings",
+    "getInTouch": "Get In Touch",
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "contact": "Contact",
+    "about": "About",
+    "home": "Home",
+    "listings": "Listings",
+    "agents": "Agents",
+    "aboutUs": "About us"
+  },
+  "header": {
+    "home": "Home",
+    "aboutUs": "About us",
+    "listings": "Listings",
+    "news": "News",
+    "agents": "Agents",
+    "getInTouch": "Get In Touch"
+  },
+  "hero": {
+    "slide1": {
+      "title": "Find Your Next Home Sweet Home",
+      "description": "A spacious and modern home with an open floor plan, large windows, and a beautifully landscaped garden, perfect for those seeking peace and tranquility."
+    },
+    "slide2": {
+      "title": "Luxury Living Awaits",
+      "description": "A beautiful and spacious home with a large garden, swimming pool, and stunning views of the city, perfect for those who love to entertain."
+    },
+    "slide3": {
+      "title": "Your Dream Property",
+      "description": "A stunning and luxurious home with a large garden, swimming pool, and breathtaking views of the ocean, perfect for those who love the finer things in life."
+    },
+    "slide4": {
+      "title": "Modern Urban Living",
+      "description": "A stylish townhouse with contemporary design, featuring a rooftop terrace, open living spaces, and modern amenities."
+    }
+  },
+  "listings": {
+    "title": "Our Real Estate Projects",
+    "subtitle": "Explore our exclusive collection of premium real estate developments and projects.",
+    "viewAll": "View All Listings",
+    "noProjects": "No projects available",
+    "loading": "Loading projects...",
+    "categories": {
+      "All": "All",
+      "Condos": "Condos",
+      "Commercial": "Commercial",
+      "Townhouses": "Townhouses",
+      "Villas": "Villas",
+      "Houses": "Houses"
+    }
+  },
+  "propertyDetail": {
+    "overview": "Overview",
+    "generalInformation": "General Information",
+    "interiorDetails": "Interior Details",
+    "listingAgent": "Listing Agent",
+    "additionalGallery": "ADDITIONAL GALLERY",
+    "relatedProperties": "Related Properties",
+    "generalInfoText1": "This beautifully designed project offers a fantastic opportunity for a serene and spacious living environment in the desirable Al Hulool Al Muthla community.",
+    "generalInfoText2": "The home features a light and bright floor plan with a large living room, dining area, and a spacious kitchen with a breakfast bar and plenty of cabinet and counter space.",
+    "generalInfoText3": "The master bedroom is large and comfortable, and the master bath features a large tub/shower combo.",
+    "generalInfoText4": "The second bedroom is also spacious and comfortable, and the second bath features a large tub/shower combo.",
+    "interiorText1": "This beautifully designed project offers a fantastic opportunity for a serene and spacious living environment in the desirable Al Hulool Al Muthla community.",
+    "interiorText2": "The home features a light and bright floor plan with a large living room, dining area, and a spacious kitchen with a breakfast bar and plenty of cabinet and counter space."
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "We'd love to hear from you! Whether you have a question about our listings, services, our just want to talk about your dream home, our team is here to help.",
+    "office": "OFFICE",
+    "contact": "CONTACT",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message"
+  },
+  "about": {
+    "aboutUs": "ABOUT US",
+    "description": "We are Al Hulool Al Muthla, a leading Iraqi engineering firm specializing in architectural and structural design and execution, working according to the highest engineering standards to provide integrated solutions that combine beauty, strength, and precision in execution.\n\nOur expertise covers the design and execution of residential, educational, and commercial projects from concept to delivery, with full commitment to timelines and quality of work.\n\nOur vision is to be the premier destination for integrated construction in Iraq, and our mission is to deliver projects that translate trust into tangible achievements.",
+    "aboutUsEn": "ABOUT US",
+    "descriptionEn": "AL HULOOL AL MUTHLA IS A LEADING IRAQI ENGINEERING FIRM SPECIALIZING IN ARCHITECTURAL AND STRUCTURAL DESIGN AND CONSTRUCTION.\n\nWE PROVIDE INTEGRATED SOLUTIONS THAT COMBINE AESTHETIC VISION, STRUCTURAL STRENGTH, AND PRECISE EXECUTION.\n\nOUR EXPERTISE COVERS RESIDENTIAL, EDUCATIONAL, AND COMMERCIAL PROJECTS - FROM CONCEPT TO DELIVERY - WITH FULL COMMITMENT TO TIMELINES AND QUALITY STANDARDS.\n\nOUR VISION IS TO BE IRAQ'S PREMIER DESTINATION FOR INTEGRATED CONSTRUCTION, AND OUR MISSION IS TO TRANSFORM TRUST INTO TANGIBLE ACHIEVEMENTS.",
+    "services": {
+      "title": "OUR SPECIALIZED SERVICES",
+      "service1": "Design, implementation, and equipping of various buildings, residential complexes, hospitals, schools, hotels, refrigerated warehouses, and specialized research centers.",
+      "service2": "Electrical projects including power generation station services, maintenance, high and low voltage networks, power transmission lines, and electrical control units of various sizes.",
+      "service3": "Equipping and installing transformer stations of various sizes up to 63 MVA, and all mechanical, electrical, and electronic works.",
+      "service4": "Equipping spare parts for diesel, thermal, and gas power generation stations.",
+      "service5": "Equipping, installing, and extending high voltage feeders and high capacity cables.",
+      "service6": "Equipping and installing regular lighting poles that operate on solar energy.",
+      "service7": "Construction and design of small, medium, and large drinking water stations."
+    },
+    "vision": {
+      "title": "OUR VISION",
+      "description": "To become Iraq's leading engineering firm in integrated construction – from design to execution and to shape the country's urban landscape through projects that blend modernity, durability, and beauty.",
+      "titleEn": "OUR VISION",
+      "descriptionEn": "TO BECOME IRAQ'S LEADING ENGINEERING FIRM IN INTEGRATED CONSTRUCTION – FROM DESIGN TO EXECUTION AND TO SHAPE THE COUNTRY'S URBAN LANDSCAPE THROUGH PROJECTS THAT BLEND MODERNITY, DURABILITY, AND BEAUTY."
+    },
+    "values": {
+      "title": "OUR VALUES",
+      "titleEn": "OUR VALUES",
+      "commitment": {
+        "title": "COMMITMENT",
+        "description": "We honor deadlines and deliver quality at every stage.",
+        "titleEn": "COMMITMENT",
+        "descriptionEn": "WE HONOR DEADLINES AND DELIVER QUALITY AT EVERY STAGE."
+      },
+      "professionalism": {
+        "title": "PROFESSIONALISM",
+        "description": "We operate by the highest engineering and ethical standards.",
+        "titleEn": "PROFESSIONALISM",
+        "descriptionEn": "WE OPERATE BY THE HIGHEST ENGINEERING AND ETHICAL STANDARDS."
+      },
+      "innovation": {
+        "title": "INNOVATION",
+        "description": "We seek the optimal solution for every design and construction challenge.",
+        "titleEn": "INNOVATION",
+        "descriptionEn": "WE SEEK THE OPTIMAL SOLUTION FOR EVERY DESIGN AND CONSTRUCTION CHALLENGE."
+      },
+      "transparency": {
+        "title": "TRANSPARENCY",
+        "description": "Trust begins with clarity in every action.",
+        "titleEn": "TRANSPARENCY",
+        "descriptionEn": "TRUST BEGINS WITH CLARITY IN EVERY ACTION."
+      },
+      "quality": {
+        "title": "QUALITY",
+        "description": "Excellence in execution defines who we are.",
+        "titleEn": "QUALITY",
+        "descriptionEn": "EXCELLENCE IN EXECUTION DEFINES WHO WE ARE."
+      }
+    },
+    "mission": {
+      "label": "ABOUT US",
+      "subtitle": "We are passionate about helping our clients achieve their real estate dreams. With a team of dedicated professionals and a commitment to integrity, we provide exceptional service and expertise in every transaction.",
+      "title": "Our mission is to provide unparallaled real estate services that exceed our clients expectations."
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "subtitle": "Manage your website content",
+      "loading": "Loading...",
+      "logout": "Logout",
+      "heroSection": {
+        "title": "Hero Section",
+        "description": "Manage hero slides in both languages"
+      },
+      "projects": {
+        "title": "Projects",
+        "description": "Manage real estate projects in both languages"
+      },
+      "admins": {
+        "title": "Admins",
+        "description": "Manage admin users and permissions"
+      },
+      "news": {
+        "title": "News",
+        "description": "Manage news articles in both languages"
+      }
+    },
+    "news": {
+      "title": "News Management",
+      "backToDashboard": "Dashboard",
+      "addNew": "Add New News",
+      "loading": "Loading...",
+      "pinnedNews": "Pinned News",
+      "regularNews": "Regular News",
+      "noNews": "No news articles yet",
+      "pinned": "Pinned",
+      "pin": "Pin",
+      "unpin": "Unpin",
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirmDelete": "Are you sure you want to delete this news?",
+      "deleteError": "Failed to delete news",
+      "pinError": "Failed to update pin status",
+      "editNews": "Edit News",
+      "addNews": "Add New News",
+      "titleEn": "English Title",
+      "titleAr": "Arabic Title",
+      "contentEn": "English Content",
+      "contentAr": "Arabic Content",
+      "image": "Image",
+      "pinNews": "Pin this news",
+      "order": "Order (for pinned news)",
+      "update": "Update",
+      "create": "Create",
+      "cancel": "Cancel",
+      "uploading": "Uploading...",
+      "uploadError": "Failed to upload image",
+      "saveError": "Failed to save news"
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "Latest News & Updates"
+    },
+    "pinnedNews": "Featured News",
+    "regularNews": "All News",
+    "noNews": "No news articles available",
+    "loading": "Loading news...",
+    "readMore": "Read More",
+    "backToNews": "Back to News",
+    "share": "Share",
+    "sharing": "Sharing...",
+    "notFound": "News article not found"
+  }
+}
+

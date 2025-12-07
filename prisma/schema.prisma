@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model HeroSlide {
+  id          Int      @id @default(autoincrement())
+  order       Int      @default(0)
+  titleEn     String
+  titleAr     String
+  descriptionEn String @db.Text
+  descriptionAr String @db.Text
+  mainImage   String
+  contentImage String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  titleEn     String
+  titleAr     String
+  descriptionEn String @db.Text
+  descriptionAr String @db.Text
+  category    String
+  images      String[] // Array of image URLs
+  address     String?
+  features    Json?    // Store features as JSON
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Admin {
+  id          String   @id @default(uuid())
+  email       String   @unique
+  password    String   // Hashed password
+  name        String?
+  role        String   @default("admin") // admin, super_admin
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model News {
+  id          Int      @id @default(autoincrement())
+  titleEn     String
+  titleAr     String
+  contentEn   String   @db.Text
+  contentAr   String   @db.Text
+  image       String?
+  isPinned    Boolean  @default(false) // true for fixed news, false for regular news
+  order       Int      @default(0) // For ordering pinned news
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+

@@ -1,0 +1,43 @@
+.section {
+    background-image: url("/images/video.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.title {
+    z-index: 1;
+    color: var(--white);
+    font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .title {
+    font-family: var(--font-ibm-arabic-semibold);
+}
+
+@media (max-width: 768px) {
+    .section {
+        height: 50vh;
+    }
+}
+

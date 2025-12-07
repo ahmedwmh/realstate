@@ -1,0 +1,211 @@
+{
+  "common": {
+    "viewAll": "عرض جميع المشاريع",
+    "getInTouch": "تواصل معنا",
+    "learnMore": "اعرف المزيد",
+    "readMore": "اقرأ المزيد",
+    "contact": "اتصل",
+    "about": "حول",
+    "home": "الرئيسية",
+    "listings": "المشاريع",
+    "agents": "الوكلاء",
+    "aboutUs": "من نحن"
+  },
+  "header": {
+    "home": "الرئيسية",
+    "aboutUs": "من نحن",
+    "listings": "المشاريع",
+    "news": "الأخبار",
+    "agents": "الوكلاء",
+    "getInTouch": "تواصل معنا"
+  },
+  "hero": {
+    "slide1": {
+      "title": "ابحث عن منزلك المثالي القادم",
+      "description": "منزل واسع وعصري بتصميم مفتوح ونوافذ كبيرة وحديقة جميلة، مثالي لمن يبحثون عن السلام والهدوء."
+    },
+    "slide2": {
+      "title": "العيش الفاخر ينتظرك",
+      "description": "منزل جميل وواسع مع حديقة كبيرة وحوض سباحة وإطلالات خلابة على المدينة، مثالي لمن يحبون الاستضافة والترفيه."
+    },
+    "slide3": {
+      "title": "عقار أحلامك",
+      "description": "منزل فاخر ومذهل مع حديقة كبيرة وحوض سباحة وإطلالات خلابة على المحيط، مثالي لمن يحبون الأشياء الراقية في الحياة."
+    },
+    "slide4": {
+      "title": "العيش الحضري العصري",
+      "description": "منزل أنيق بتصميم معاصر، يتميز بشرفة على السطح ومساحات معيشة مفتوحة ووسائل راحة حديثة."
+    }
+  },
+  "listings": {
+    "title": "مشاريعنا العقارية",
+    "subtitle": "استكشف مجموعتنا الحصرية من التطويرات والمشاريع العقارية المميزة.",
+    "viewAll": "عرض جميع المشاريع",
+    "noProjects": "لا توجد مشاريع متاحة",
+    "loading": "جاري تحميل المشاريع...",
+    "categories": {
+      "All": "الجميع",
+      "Condos": "شقق",
+      "Commercial": "مجمعات سكنية",
+      "Townhouses": "بيوت",
+      "Villas": "فيلات",
+      "Houses": "منازل"
+    }
+  },
+  "propertyDetail": {
+    "overview": "نظرة عامة",
+    "generalInformation": "معلومات عامة",
+    "interiorDetails": "تفاصيل داخلية",
+    "listingAgent": "الوكيل المسؤول",
+    "additionalGallery": "معرض إضافي",
+    "relatedProperties": "عقارات ذات صلة",
+    "generalInfoText1": "يوفر هذا المشروع المصمم بشكل جميل فرصة رائعة لبيئة معيشة هادئة وواسعة في مجتمع شركة الحلول المثلى المرغوب فيه.",
+    "generalInfoText2": "يتميز المنزل بخطة أرضية مضيئة ومشرقة مع غرفة معيشة كبيرة ومنطقة طعام ومطبخ واسع مع بار إفطار والكثير من مساحة الخزائن والعدادات.",
+    "generalInfoText3": "الغرفة الرئيسية كبيرة ومريحة، وتتميز الحمام الرئيسي بحوض استحمام/دش كبير.",
+    "generalInfoText4": "الغرفة الثانية أيضًا واسعة ومريحة، ويتميز الحمام الثاني بحوض استحمام/دش كبير.",
+    "interiorText1": "يوفر هذا المشروع المصمم بشكل جميل فرصة رائعة لبيئة معيشة هادئة وواسعة في مجتمع شركة الحلول المثلى المرغوب فيه.",
+    "interiorText2": "يتميز المنزل بخطة أرضية مضيئة ومشرقة مع غرفة معيشة كبيرة ومنطقة طعام ومطبخ واسع مع بار إفطار والكثير من مساحة الخزائن والعدادات."
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "subtitle": "نود أن نسمع منك! سواء كان لديك سؤال حول قوائمنا أو خدماتنا، أو تريد فقط التحدث عن منزل أحلامك، فريقنا هنا للمساعدة.",
+    "office": "المكتب",
+    "contact": "اتصل",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "message": "الرسالة",
+    "send": "إرسال الرسالة"
+  },
+  "about": {
+    "aboutUs": "من نحن",
+    "description": "نحن شركة الحلول المثلى، شركة هندسية عراقية رائدة في مجال التصميم والتنفيذ المعماري والإنشائي، نعمل وفق أعلى المعايير الهندسية لنقدم حلولاً متكاملة تجمع بين الجمال والصلابة والدقة في التنفيذ.\n\nتخصصنا يشمل تصميم وتنفيذ المشاريع السكنية، التعليمية، والتجارية من مرحلة الفكرة حتى التسليم، مع التزام تام بالجداول الزمنية وجودة العمل.\n\nرؤيتنا هي أن نكون الوجهة الأولى للبناء المتكامل في العراق، ورسالتنا هي تقديم مشاريع تترجم الثقة إلى واقع ملموس.",
+    "aboutUsEn": "ABOUT US",
+    "descriptionEn": "AL HULOOL AL MUTHLA IS A LEADING IRAQI ENGINEERING FIRM SPECIALIZING IN ARCHITECTURAL AND STRUCTURAL DESIGN AND CONSTRUCTION.\n\nWE PROVIDE INTEGRATED SOLUTIONS THAT COMBINE AESTHETIC VISION, STRUCTURAL STRENGTH, AND PRECISE EXECUTION.\n\nOUR EXPERTISE COVERS RESIDENTIAL, EDUCATIONAL, AND COMMERCIAL PROJECTS - FROM CONCEPT TO DELIVERY - WITH FULL COMMITMENT TO TIMELINES AND QUALITY STANDARDS.\n\nOUR VISION IS TO BE IRAQ'S PREMIER DESTINATION FOR INTEGRATED CONSTRUCTION, AND OUR MISSION IS TO TRANSFORM TRUST INTO TANGIBLE ACHIEVEMENTS.",
+    "services": {
+      "title": "خدماتنا التخصصية",
+      "service1": "تصميم وتنفيذ وتجهيز مختلف المباني والمجمعات السكنية والمستشفيات والمدارس والفنادق والمخازن المبردة والمراكز التخصصية البحثية.",
+      "service2": "المشاريع الكهربائية من خدمات محطات التوليد والصيانة وشبكات الضغط العالي والواطئ وخطوط نقل الطاقة الكهربائية ووحدات السيطرة الكهربائية بمختلف أحجامها.",
+      "service3": "تجهيز ونصب محطات تحويلية وبمختلف أحجامها تصل الى 63 ميكا وجميع الأعمال الميكانيكية والكهربائية والإلكترونية.",
+      "service4": "تجهيز الأدوات الاحتياطية لمحطات التوليد الكهربائية الديزل والحرارية والغازية.",
+      "service5": "تجهيز ونصب ومد مغذيات الضغط العالية والكيبلات ذات القدرة العالية.",
+      "service6": "تجهيز ونصب أعمدة الإضاءة العادية والتي تعمل في الطاقة الشمسية.",
+      "service7": "إنشاء وتصميم محطات مياه الشرب الصغيرة والمتوسطة والكبيرة."
+    },
+    "vision": {
+      "title": "رؤيتنا",
+      "description": "أن نكون الجهة الهندسية الأولى في العراق في مجال البناء المتكامل، من التصميم إلى التنفيذ، وأن نسهم في تطوير البيئة العمرانية من خلال مشاريع تجمع بين الحداثة، المتانة، والجمال.",
+      "titleEn": "OUR VISION",
+      "descriptionEn": "TO BECOME IRAQ'S LEADING ENGINEERING FIRM IN INTEGRATED CONSTRUCTION – FROM DESIGN TO EXECUTION AND TO SHAPE THE COUNTRY'S URBAN LANDSCAPE THROUGH PROJECTS THAT BLEND MODERNITY, DURABILITY, AND BEAUTY."
+    },
+    "values": {
+      "title": "قيمنا",
+      "titleEn": "OUR VALUES",
+      "commitment": {
+        "title": "الالتزام",
+        "description": "نلتزم بالمواعيد والجودة في كل مرحلة من المشروع.",
+        "titleEn": "COMMITMENT",
+        "descriptionEn": "WE HONOR DEADLINES AND DELIVER QUALITY AT EVERY STAGE."
+      },
+      "professionalism": {
+        "title": "الاحترافية",
+        "description": "نعمل وفق أعلى المعايير الهندسية والمهنية.",
+        "titleEn": "PROFESSIONALISM",
+        "descriptionEn": "WE OPERATE BY THE HIGHEST ENGINEERING AND ETHICAL STANDARDS."
+      },
+      "innovation": {
+        "title": "الابتكار",
+        "description": "نبحث دائماً عن الحلول المثلى لكل تحد هندسي.",
+        "titleEn": "INNOVATION",
+        "descriptionEn": "WE SEEK THE OPTIMAL SOLUTION FOR EVERY DESIGN AND CONSTRUCTION CHALLENGE."
+      },
+      "transparency": {
+        "title": "الشفافية",
+        "description": "نؤمن أن الثقة تبدأ من الوضوح في العمل.",
+        "titleEn": "TRANSPARENCY",
+        "descriptionEn": "TRUST BEGINS WITH CLARITY IN EVERY ACTION."
+      },
+      "quality": {
+        "title": "الجودة",
+        "description": "جودة التنفيذ هي ما يميزنا ويصنع أثرنا.",
+        "titleEn": "QUALITY",
+        "descriptionEn": "EXCELLENCE IN EXECUTION DEFINES WHO WE ARE."
+      }
+    },
+    "mission": {
+      "label": "من نحن",
+      "subtitle": "نحن متحمسون لمساعدة عملائنا على تحقيق أحلامهم العقارية. مع فريق من المحترفين المتفانين والتزام بالنزاهة، نقدم خدمة وخبرة استثنائية في كل معاملة.",
+      "title": "مهمتنا هي تقديم خدمات عقارية لا مثيل لها تتجاوز توقعات عملائنا."
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "لوحة التحكم الإدارية",
+      "subtitle": "إدارة محتوى موقعك",
+      "loading": "جاري التحميل...",
+      "logout": "تسجيل الخروج",
+      "heroSection": {
+        "title": "القسم الرئيسي",
+        "description": "إدارة شرائح القسم الرئيسي باللغتين"
+      },
+      "projects": {
+        "title": "المشاريع",
+        "description": "إدارة المشاريع العقارية باللغتين"
+      },
+      "admins": {
+        "title": "المدراء",
+        "description": "إدارة المستخدمين الإداريين والصلاحيات"
+      },
+      "news": {
+        "title": "الأخبار",
+        "description": "إدارة المقالات الإخبارية باللغتين"
+      }
+    },
+    "news": {
+      "title": "إدارة الأخبار",
+      "backToDashboard": "لوحة التحكم",
+      "addNew": "إضافة خبر جديد",
+      "loading": "جاري التحميل...",
+      "pinnedNews": "الأخبار المثبتة",
+      "regularNews": "الأخبار العادية",
+      "noNews": "لا توجد أخبار حتى الآن",
+      "pinned": "مثبت",
+      "pin": "تثبيت",
+      "unpin": "إلغاء التثبيت",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "confirmDelete": "هل أنت متأكد من حذف هذا الخبر؟",
+      "deleteError": "فشل حذف الخبر",
+      "pinError": "فشل تحديث حالة التثبيت",
+      "editNews": "تعديل الخبر",
+      "addNews": "إضافة خبر جديد",
+      "titleEn": "العنوان بالإنجليزية",
+      "titleAr": "العنوان بالعربية",
+      "contentEn": "المحتوى بالإنجليزية",
+      "contentAr": "المحتوى بالعربية",
+      "image": "الصورة",
+      "pinNews": "تثبيت هذا الخبر",
+      "order": "الترتيب (للأخبار المثبتة)",
+      "update": "تحديث",
+      "create": "إنشاء",
+      "cancel": "إلغاء",
+      "uploading": "جاري الرفع...",
+      "uploadError": "فشل رفع الصورة",
+      "saveError": "فشل حفظ الخبر"
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "آخر الأخبار والتحديثات"
+    },
+    "pinnedNews": "الأخبار المميزة",
+    "regularNews": "جميع الأخبار",
+    "noNews": "لا توجد أخبار متاحة",
+    "loading": "جاري تحميل الأخبار...",
+    "readMore": "اقرأ المزيد",
+    "backToNews": "العودة للأخبار",
+    "share": "مشاركة",
+    "sharing": "جاري المشاركة...",
+    "notFound": "الخبر غير موجود"
+  }
+}
+

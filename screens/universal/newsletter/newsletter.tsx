@@ -19,7 +19,7 @@ export default function Newsletter() {
                 {"We're hiring!"}
               </div>
               <div className={cn("paragraph-medium", styles.subtitle)}>
-                HeavenHomes is always looking for talented and passionate
+                Al Hulool Al Muthla is always looking for talented and passionate
                 individuals to join our team. If you are driven,
                 customer-focused, and eager to make a difference, we want to
                 hear from you!

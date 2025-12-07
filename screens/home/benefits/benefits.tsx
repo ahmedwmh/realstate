@@ -30,7 +30,7 @@ const benefits = [
   },
   {
     id: 2,
-    title: "Benefits of choosing HeavenHomes",
+    title: "Benefits of choosing Al Hulool Al Muthla",
     description:
       "We offer a range of benefits that set us apart from other real estate agencies. Our team of experts will guide you through the process, ensuring you get the best deal possible.",
     image: "/images/benefit-2.webp",

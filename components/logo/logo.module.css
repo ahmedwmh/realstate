@@ -1,7 +1,30 @@
 .logo {
     z-index: 99;
-    color: var(--white);
-    font-size: 24px;
-    line-height: 32px;
-    font-family: var(--font-author-semibold);
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    height: 50px;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo_image {
+    height: 100%;
+    width: auto;
+    max-height: 50px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 40px;
+    }
+
+    .logo_image {
+        max-height: 40px;
+    }
 }

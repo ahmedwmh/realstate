@@ -1,58 +1,103 @@
+"use client";
+
 import React from "react";
 import styles from "./values.module.css";
 import cn from "classnames";
-import { Bag } from "@/constants/icons";
-
-const values = [
-  {
-    id: 1,
-    icon: Bag,
-    title: "Integrity",
-    description:
-      "We conduct our business with the highest level of honesty and ethical standars, ensuring that our clients can trust us to represent their best interest.",
-  },
-  {
-    id: 2,
-    icon: Bag,
-    title: "Excellence",
-    description:
-      "We strive for excellence in everything we do, from our clients interactions to the results we deliver. Our commitment to quality set us apart.",
-  },
-  {
-    id: 3,
-    icon: Bag,
-    title: "Innovation",
-    description:
-      "We embrace innovation and leverage the latest technology to provide our clients with cutting-edge solutions and insights.",
-  },
-  {
-    id: 4,
-    icon: Bag,
-    title: "Community",
-    description:
-      "We are dedicated to making a positive impact in the communities we serve. We believe in giving back and supporting local initiatives.",
-  },
-];
+import { Heading } from "@/components/typography";
+import { useLanguage } from "@/context/language-context";
+import Image from "next/image";
 
 export default function Values() {
+  const { t } = useLanguage();
+
+  const values = [
+    {
+      id: 1,
+      titleKey: "about.values.commitment.title",
+      descriptionKey: "about.values.commitment.description",
+    },
+    {
+      id: 2,
+      titleKey: "about.values.professionalism.title",
+      descriptionKey: "about.values.professionalism.description",
+    },
+    {
+      id: 3,
+      titleKey: "about.values.innovation.title",
+      descriptionKey: "about.values.innovation.description",
+    },
+    {
+      id: 4,
+      titleKey: "about.values.transparency.title",
+      descriptionKey: "about.values.transparency.description",
+    },
+    {
+      id: 5,
+      titleKey: "about.values.quality.title",
+      descriptionKey: "about.values.quality.description",
+    },
+  ];
+
   return (
-    <section className={cn("section")}>
-      <div className={cn("container")}>
-        <div className={cn("subheading-small")}>OUR VALUES</div>
+    <section className={cn("section", styles.section)}>
+      <div className={cn("container", styles.container)}>
+        <div className={styles.content}>
+          <div className={styles.arabic_section}>
+            <Heading type="heading-2" className={styles.title}>
+              {t("about.values.title")}
+            </Heading>
+            <ul className={styles.values_list}>
+              {values.map((value) => (
+                <li key={value.id} className={styles.value_item}>
+                  <span className={styles.bullet}></span>
+                  <div className={styles.value_content}>
+                    <div className={cn("paragraph-x-large", styles.value_title)}>
+                      {t(value.titleKey)}:
+                    </div>
+                    <div className={cn("paragraph-medium", styles.value_description)}>
+                      {t(value.descriptionKey)}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className={styles.values}>
-          {values.map((value) => (
-            <div key={value.id} className={styles.value}>
-              <div className={cn("gradient-bubble")}>{value.icon}</div>
+          <div className={styles.image_wrapper}>
+            <div className={styles.image_container}>
+              <Image
+                src="/images/gallery/01.webp"
+                alt="Values"
+                layout="fill"
+                objectFit="cover"
+                className={styles.image}
+              />
+            </div>
+          </div>
 
-              <div className={cn("heading-6", styles.value_title)}>
-                {value.title}
-              </div>
-              <div className={cn("paragraph-medium", styles.value_description)}>
-                {value.description}
+          <div className={styles.english_section}>
+            <div className={styles.subtitle_wrapper}>
+              <span className={styles.orange_square}></span>
+              <div className={cn("subheading-medium", styles.subtitle)}>
+                {t("about.values.titleEn")}
               </div>
             </div>
-          ))}
+            <ul className={styles.values_list_en}>
+              {values.map((value) => (
+                <li key={value.id} className={styles.value_item_en}>
+                  <span className={styles.bullet}></span>
+                  <div className={styles.value_content}>
+                    <div className={cn("paragraph-x-large", styles.value_title_en)}>
+                      {t(value.titleKey + "En")}:
+                    </div>
+                    <div className={cn("paragraph-medium", styles.value_description_en)}>
+                      {t(value.descriptionKey + "En")}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,136 @@
+/* RTL Support */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .container {
+    direction: rtl;
+}
+
+[dir="rtl"] .nav {
+    margin-left: 40px;
+    margin-right: auto;
+}
+
+[dir="rtl"] .button_wrapper {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .language_switcher {
+    flex-direction: row-reverse;
+}
+
+/* Arabic Font Support */
+[dir="rtl"] .hero-lg,
+[dir="rtl"] .hero-sm,
+[dir="rtl"] .heading-1,
+[dir="rtl"] .heading-2,
+[dir="rtl"] .heading-3,
+[dir="rtl"] .heading-4,
+[dir="rtl"] .heading-5,
+[dir="rtl"] .heading-6 {
+    font-family: var(--font-ibm-arabic-semibold);
+    font-weight: 600;
+}
+
+[dir="rtl"] .label-large,
+[dir="rtl"] .label-medium,
+[dir="rtl"] .label-small,
+[dir="rtl"] .label-x-small {
+    font-family: var(--font-ibm-arabic-medium);
+    font-weight: 500;
+}
+
+[dir="rtl"] .paragraph-2x-large,
+[dir="rtl"] .paragraph-x-large,
+[dir="rtl"] .paragraph-large {
+    font-family: var(--font-ibm-arabic-regular);
+    font-weight: 400;
+}
+
+[dir="rtl"] .paragraph-medium,
+[dir="rtl"] .paragraph-small,
+[dir="rtl"] .paragraph-x-small {
+    font-family: var(--font-ibm-arabic-regular);
+    font-weight: 400;
+}
+
+[dir="rtl"] .subheading-x-large,
+[dir="rtl"] .subheading-large,
+[dir="rtl"] .subheading-medium,
+[dir="rtl"] .subheading-small,
+[dir="rtl"] .subheading-x-small {
+    font-family: var(--font-ibm-arabic-medium);
+    font-weight: 500;
+}
+
+/* Fix spacing for RTL */
+[dir="rtl"] .nav_link::before {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .heroWrapper {
+    direction: rtl;
+}
+
+[dir="rtl"] .content {
+    text-align: right;
+}
+
+[dir="rtl"] .listings {
+    direction: rtl;
+}
+
+[dir="rtl"] .detail_head svg {
+    left: 0;
+    right: auto;
+}
+
+[dir="rtl"] .detail_head {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .container {
+    direction: rtl;
+}
+
+[dir="rtl"] .agent {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .profile_info {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+[dir="rtl"] .form {
+    direction: rtl;
+}
+
+[dir="rtl"] .form input,
+[dir="rtl"] .form textarea {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .rowFields {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .arrowLeft {
+    left: auto;
+    right: 24px;
+}
+
+[dir="rtl"] .arrowRight {
+    right: auto;
+    left: 24px;
+}
+
+[dir="rtl"] .sliderDots {
+    direction: rtl;
+}
+

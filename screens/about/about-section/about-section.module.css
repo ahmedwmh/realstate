@@ -1,0 +1,232 @@
+.section {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background: linear-gradient(180deg, var(--white) 0%, var(--slate-50) 50%, var(--white) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(0, 0, 0, 0.01) 10px,
+            rgba(0, 0, 0, 0.01) 20px
+        );
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+}
+
+.arabic_section {
+    text-align: right;
+    padding: 48px;
+    background-color: var(--white);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.arabic_section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    margin-bottom: 32px;
+    color: var(--slate-900);
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--orange-600));
+    border-radius: 2px;
+}
+
+.description {
+    color: var(--slate-700);
+    line-height: 2;
+    max-width: 100%;
+    white-space: pre-line;
+}
+
+.image_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.image_container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.image_container:hover {
+    transform: scale(1.02);
+}
+
+.image {
+    border-radius: 24px;
+}
+
+.english_section {
+    text-align: left;
+    padding: 48px;
+    background-color: var(--white);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.english_section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.orange_square {
+    width: 12px;
+    height: 12px;
+    background-color: var(--orange-600);
+    flex-shrink: 0;
+}
+
+.subtitle {
+    color: var(--slate-900);
+    margin: 0;
+}
+
+.description_en {
+    color: var(--slate-700);
+    line-height: 2;
+    text-transform: uppercase;
+    max-width: 100%;
+    white-space: pre-line;
+    letter-spacing: 0.5px;
+}
+
+[dir="rtl"] .arabic_section {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .english_section {
+    text-align: left;
+    direction: ltr;
+}
+
+[dir="rtl"] .description {
+    text-align: right;
+}
+
+[dir="rtl"] .description_en {
+    text-align: left;
+}
+
+[dir="ltr"] .arabic_section {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="ltr"] .english_section {
+    text-align: left;
+    direction: ltr;
+}
+
+[dir="ltr"] .description {
+    text-align: right;
+}
+
+[dir="ltr"] .description_en {
+    text-align: left;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        gap: 64px;
+    }
+
+    .image_container {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding-top: 120px;
+        padding-bottom: 64px;
+    }
+
+    .content {
+        gap: 48px;
+    }
+
+    .arabic_section,
+    .english_section {
+        padding: 32px 24px;
+    }
+
+    .description_en {
+        font-size: 14px;
+        line-height: 1.8;
+        letter-spacing: 0.3px;
+    }
+
+    .image_container {
+        height: 300px;
+    }
+
+    .title::after {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .arabic_section,
+    .english_section {
+        padding: 24px 20px;
+    }
+
+    .image_container {
+        height: 250px;
+    }
+}
+

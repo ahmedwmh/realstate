@@ -7,7 +7,7 @@ const leadership = [
   {
     id: 1,
     title:
-      "With over 25 years of experience in the real estate sector, Thomas Anderson leads HeavenHomes with a focus on innovation and excellence.",
+      "With over 25 years of experience in the real estate sector, Thomas Anderson leads Al Hulool Al Muthla with a focus on innovation and excellence.",
     avatar: "/images/team/thomas-anderson.webp",
     name: "Thomas Anderson",
     position: "CEO",
@@ -17,7 +17,7 @@ const leadership = [
   {
     id: 2,
     title:
-      "Robert Harris brings extensive operational expertise to HeavenHomes. As COO, he ensures smooth and efficient operations across all departments, focusing on enhacing productivity and client service.",
+      "Robert Harris brings extensive operational expertise to Al Hulool Al Muthla. As COO, he ensures smooth and efficient operations across all departments, focusing on enhacing productivity and client service.",
     avatar: "/images/team/robert-harris.webp",
     name: "Robert Harris",
     position: "COO",

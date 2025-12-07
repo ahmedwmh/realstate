@@ -1,0 +1,555 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: var(--gray-50);
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: var(--gray-950);
+  margin: 0;
+  font-weight: 400;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .header h1 {
+  font-family: var(--font-ibm-arabic-semibold);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.backButton {
+  padding: 0.5rem 1rem;
+  background: var(--gray-100);
+  color: var(--gray-800);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .backButton {
+  font-family: var(--font-ibm-arabic-medium);
+}
+
+.backButton:hover {
+  background: var(--gray-200);
+  transform: translateX(-2px);
+}
+
+[dir="rtl"] .backButton:hover {
+  transform: translateX(2px);
+}
+
+.addButton {
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(135deg, var(--orange-600) 0%, var(--orange-500) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .addButton {
+  font-family: var(--font-ibm-arabic-medium);
+}
+
+.addButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.4);
+}
+
+.logoutButton {
+  padding: 0.5rem 1rem;
+  background: var(--gray-100);
+  color: var(--gray-800);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .logoutButton {
+  font-family: var(--font-ibm-arabic-medium);
+}
+
+.logoutButton:hover {
+  background: var(--gray-200);
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.5rem;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .loading {
+  font-family: var(--font-ibm-arabic-medium);
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: var(--gray-950);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .sectionTitle {
+  font-family: var(--font-ibm-arabic-semibold);
+}
+
+.newsList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.newsCard {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--gray-200);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.newsCard:hover {
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.1);
+  border-color: var(--orange-300);
+}
+
+.newsCard.pinned {
+  border-left: 4px solid var(--orange-600);
+  background: linear-gradient(to right, rgba(234, 88, 12, 0.05), var(--white));
+}
+
+[dir="rtl"] .newsCard.pinned {
+  border-left: none;
+  border-right: 4px solid var(--orange-600);
+  background: linear-gradient(to left, rgba(234, 88, 12, 0.05), var(--white));
+}
+
+.pinnedBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--orange-600);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .pinnedBadge {
+  right: auto;
+  left: 1rem;
+  font-family: var(--font-ibm-arabic-medium);
+}
+
+.newsImage {
+  min-width: 200px;
+}
+
+.image {
+  border-radius: 8px;
+  object-fit: cover;
+  width: 200px;
+  height: 150px;
+}
+
+.newsContent {
+  flex: 1;
+}
+
+.newsContent h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--gray-950);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .newsContent h3 {
+  font-family: var(--font-ibm-arabic-semibold);
+}
+
+.contentPreview {
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .contentPreview {
+  font-family: var(--font-ibm-arabic-regular);
+}
+
+.newsMeta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .newsMeta {
+  font-family: var(--font-ibm-arabic-regular);
+}
+
+.newsActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pinButton,
+.editButton,
+.deleteButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .pinButton,
+[dir="rtl"] .editButton,
+[dir="rtl"] .deleteButton {
+  font-family: var(--font-ibm-arabic-medium);
+}
+
+.pinButton {
+  background: var(--orange-100);
+  color: var(--orange-700);
+  border: 1px solid var(--orange-300);
+}
+
+.pinButton:hover {
+  background: var(--orange-200);
+}
+
+.editButton {
+  background: var(--orange-600);
+  color: white;
+}
+
+.editButton:hover {
+  background: var(--orange-700);
+}
+
+.deleteButton {
+  background: var(--danger-600);
+  color: white;
+}
+
+.deleteButton:hover {
+  background: var(--danger-700);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem;
+  color: var(--gray-500);
+  font-size: 1.125rem;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .emptyState {
+  font-family: var(--font-ibm-arabic-regular);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modalContent {
+  background: var(--white);
+  border-radius: 12px;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.modalHeader h2 {
+  margin: 0;
+  color: var(--gray-950);
+  font-weight: 400;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .modalHeader h2 {
+  font-family: var(--font-ibm-arabic-semibold);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--gray-600);
+  line-height: 1;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+.closeButton:hover {
+  color: var(--gray-950);
+}
+
+.form {
+  padding: 1.5rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 400;
+  color: var(--gray-950);
+  font-size: 0.9rem;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .formGroup label {
+  font-family: var(--font-ibm-arabic-medium);
+}
+
+.formGroup input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+[dir="rtl"] .formGroup input[type="checkbox"] {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: var(--font-lbc-regular);
+  transition: all 0.2s;
+}
+
+[dir="rtl"] .formGroup input,
+[dir="rtl"] .formGroup textarea {
+  font-family: var(--font-ibm-arabic-regular);
+  text-align: right;
+}
+
+.formGroup textarea {
+  resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--orange-600);
+}
+
+.imagePreview {
+  position: relative;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.previewImage {
+  border-radius: 8px;
+  border: 2px solid var(--gray-200);
+  object-fit: cover;
+}
+
+.removeImageButton {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background: var(--danger-600);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.removeImageButton:hover {
+  background: var(--danger-700);
+  transform: scale(1.1);
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.saveButton,
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.2s;
+  font-family: var(--font-lbc-regular);
+}
+
+[dir="rtl"] .saveButton,
+[dir="rtl"] .cancelButton {
+  font-family: var(--font-ibm-arabic-medium);
+}
+
+.saveButton {
+  background: linear-gradient(135deg, var(--orange-600) 0%, var(--orange-500) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+}
+
+.saveButton:hover {
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.4);
+  transform: translateY(-1px);
+}
+
+.cancelButton {
+  background: var(--gray-600);
+  color: white;
+}
+
+.cancelButton:hover {
+  background: var(--gray-700);
+}
+
+@media (max-width: 768px) {
+  .newsCard {
+    grid-template-columns: 1fr;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsImage {
+    min-width: 100%;
+  }
+
+  .image {
+    width: 100%;
+  }
+}
+

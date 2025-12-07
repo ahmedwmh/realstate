@@ -40,7 +40,7 @@ export default function Hero() {
                 (123) 456-7890
               </div>
               <div className={cn("paragraph-medium", styles.contact_text)}>
-                info@heavenhomes.com
+                info@alhulool-almuthla.com
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Hero() {
             <button className={cn("button", styles.button)}>Send</button>
             <div className={cn("paragraph-small", styles.agreeText)}>
               By submitting, you agree to our <span>Privacy Policy</span> and
-              consent to be contacted by HeavenHomes.
+              consent to be contacted by Al Hulool Al Muthla.
             </div>
           </div>
         </form>
