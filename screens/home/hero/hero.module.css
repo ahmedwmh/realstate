@@ -123,6 +123,26 @@
     line-height: 1.2;
 }
 
+/* Responsive title sizing */
+.title :global(.heading-1) {
+    font-size: 64px;
+    line-height: 72px;
+}
+
+@media (max-width: 768px) {
+    .title :global(.heading-1) {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title :global(.heading-1) {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
 .description {
     color: var(--slate-600);
     line-height: 1.7;
