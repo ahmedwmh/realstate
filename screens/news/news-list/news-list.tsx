@@ -30,7 +30,12 @@ export default function NewsList() {
 
   const fetchNews = async () => {
     try {
-      const response = await fetch("/api/news");
+      const response = await fetch("/api/news", {
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch news");
       }
@@ -139,7 +144,16 @@ function NewsCard({ newsItem, language }: { newsItem: News; language: string }) 
       )}
       {newsItem.image && (
         <div className={styles.newsImage}>
-          <Image src={newsItem.image} alt={title} fill className={styles.image} />
+          <Image 
+            src={newsItem.image.startsWith("http") && !newsItem.image.includes("?") 
+              ? `${newsItem.image}?t=${Date.now()}` 
+              : newsItem.image} 
+            alt={title} 
+            fill 
+            className={styles.image}
+            unoptimized={newsItem.image.startsWith("http")}
+            loading="lazy"
+          />
         </div>
       )}
       <div className={styles.newsContent}>

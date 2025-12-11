@@ -312,6 +312,7 @@ function NewsForm({
 
   const [oldImage, setOldImage] = useState(news?.image || "");
   const [uploading, setUploading] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -342,6 +343,7 @@ function NewsForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
 
     try {
       const url = "/api/news";
@@ -359,10 +361,12 @@ function NewsForm({
       } else {
         const error = await response.json();
         alert(error.error || t("admin.news.saveError"));
+        setSubmitting(false);
       }
     } catch (error) {
       console.error("Error saving news:", error);
       alert(t("admin.news.saveError"));
+      setSubmitting(false);
     }
   };
 
@@ -467,10 +471,28 @@ function NewsForm({
           </div>
 
           <div className={styles.formActions}>
-            <button type="submit" className={styles.saveButton}>
-              {news ? t("admin.news.update") : t("admin.news.create")}
+            <button type="submit" className={styles.saveButton} disabled={submitting || uploading}>
+              {submitting ? (
+                <>
+                  <svg className={styles.buttonSpinner} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2v4" />
+                  </svg>
+                  {news ? t("admin.news.updating") || "Updating..." : t("admin.news.creating") || "Creating..."}
+                </>
+              ) : uploading ? (
+                <>
+                  <svg className={styles.buttonSpinner} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2v4" />
+                  </svg>
+                  {t("admin.news.uploading") || "Uploading..."}
+                </>
+              ) : (
+                news ? t("admin.news.update") : t("admin.news.create")
+              )}
             </button>
-            <button type="button" onClick={onClose} className={styles.cancelButton}>
+            <button type="button" onClick={onClose} className={styles.cancelButton} disabled={submitting || uploading}>
               {t("admin.news.cancel")}
             </button>
           </div>

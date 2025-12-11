@@ -18,7 +18,14 @@ export async function GET(request: NextRequest) {
       ],
     });
 
-    return NextResponse.json(news);
+    // Add cache headers with shorter duration for faster updates
+    return NextResponse.json(news, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=10, stale-while-revalidate=30',
+        'CDN-Cache-Control': 'public, s-maxage=10',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=10',
+      },
+    });
   } catch (error) {
     console.error('Error fetching news:', error);
     return NextResponse.json(
@@ -120,7 +127,14 @@ export async function PUT(request: NextRequest) {
       data: updateData,
     });
 
-    return NextResponse.json(news);
+    // Revalidate cache after update
+    return NextResponse.json(news, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+        'CDN-Cache-Control': 'no-store',
+        'Vercel-CDN-Cache-Control': 'no-store',
+      },
+    });
   } catch (error: any) {
     console.error('Error updating news:', error);
     return NextResponse.json(

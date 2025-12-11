@@ -33,7 +33,12 @@ export default function NewsDetailPage({ id }: { id: string }) {
 
   const fetchNews = async () => {
     try {
-      const response = await fetch(`/api/news`);
+      const response = await fetch(`/api/news`, {
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch news");
       }
@@ -132,7 +137,16 @@ export default function NewsDetailPage({ id }: { id: string }) {
           <article className={styles.article}>
             {news.image && (
               <div className={styles.imageContainer}>
-                <Image src={news.image} alt={title} fill className={styles.image} priority />
+                <Image 
+                  src={news.image.startsWith("http") && !news.image.includes("?") 
+                    ? `${news.image}?t=${Date.now()}` 
+                    : news.image} 
+                  alt={title} 
+                  fill 
+                  className={styles.image} 
+                  priority
+                  unoptimized={news.image.startsWith("http")}
+                />
                 {news.isPinned && (
                   <div className={styles.pinnedBadge}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

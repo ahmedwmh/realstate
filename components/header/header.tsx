@@ -21,6 +21,7 @@ const blackHeaderPages = [
   "/",
   "/contact",
   "/property-detail",
+  "/news",
 ];
 
 export default function Header() {
@@ -90,7 +91,7 @@ export default function Header() {
     }
   };
 
-  const isBlackHeader = blackHeaderPages.includes(pathname);
+  const isBlackHeader = blackHeaderPages.includes(pathname) || pathname.startsWith("/news/");
 
   return (
     <header
