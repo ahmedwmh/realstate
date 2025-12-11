@@ -21,7 +21,7 @@ function LatestListings() {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
   const { data: projectsData, loading } = useApiFetch<Project[]>({
     endpoint: "/api/projects",
-    cache: "force-cache",
+    cache: "no-store",
     transform: transformProjects,
   });
 

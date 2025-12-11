@@ -23,6 +23,13 @@ type PropertyListingProps = {
 function PropertyListing({ item }: PropertyListingProps) {
   const imageSrc = item.images?.[0] || "/images/intro.webp";
   const isExternalImage = imageSrc.startsWith("http");
+  
+  // Add cache busting for external images
+  const imageUrl = isExternalImage && imageSrc.includes("?") 
+    ? imageSrc 
+    : isExternalImage 
+    ? `${imageSrc}?t=${Date.now()}` 
+    : imageSrc;
 
   return (
     <div className={styles.listing}>
@@ -34,7 +41,7 @@ function PropertyListing({ item }: PropertyListingProps) {
         className={styles.img_holder}
       >
         <Image
-          src={imageSrc}
+          src={imageUrl}
           alt={item.title}
           fill
           style={{ objectFit: "cover", objectPosition: "center" }}

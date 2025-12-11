@@ -10,12 +10,12 @@ export async function GET() {
       take: 15 // Limit results for better performance
     });
     
-    // Add cache headers for better performance
+    // Add cache headers with shorter duration for admin updates
     return NextResponse.json(projects, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
-        'CDN-Cache-Control': 'public, s-maxage=60',
-        'Vercel-CDN-Cache-Control': 'public, s-maxage=60',
+        'Cache-Control': 'public, s-maxage=10, stale-while-revalidate=30',
+        'CDN-Cache-Control': 'public, s-maxage=10',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=10',
       },
     });
   } catch (error) {
@@ -92,7 +92,14 @@ export async function PUT(request: NextRequest) {
       },
     });
 
-    return NextResponse.json(project);
+    // Revalidate cache after update
+    return NextResponse.json(project, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+        'CDN-Cache-Control': 'no-store',
+        'Vercel-CDN-Cache-Control': 'no-store',
+      },
+    });
   } catch (error) {
     console.error('Error updating project:', error);
     return NextResponse.json(

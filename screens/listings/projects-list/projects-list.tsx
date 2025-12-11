@@ -32,7 +32,12 @@ export default function ProjectsList() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("/api/projects");
+      const response = await fetch("/api/projects", {
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      });
       if (response.ok) {
         const data = await response.json();
         setProjects(Array.isArray(data) ? data : []);
