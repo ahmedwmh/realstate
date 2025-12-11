@@ -31,7 +31,7 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { titleEn, titleAr, descriptionEn, descriptionAr, category, images, address, features } = body;
+    const { titleEn, titleAr, descriptionEn, descriptionAr, category, images, address, features, generalInfo, interiorDetails } = body;
 
     const project = await prisma.project.create({
       data: {
@@ -43,6 +43,8 @@ export async function POST(request: NextRequest) {
         images: images || [],
         address,
         features: features || null,
+        generalInfo: generalInfo || null,
+        interiorDetails: interiorDetails || null,
       },
     });
 
@@ -60,7 +62,7 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   try {
     const body = await request.json();
-    const { id, titleEn, titleAr, descriptionEn, descriptionAr, category, images, address, features, oldImages } = body;
+    const { id, titleEn, titleAr, descriptionEn, descriptionAr, category, images, address, features, generalInfo, interiorDetails, oldImages } = body;
 
     // Delete old images that are not in the new images array
     if (oldImages && images) {
@@ -85,6 +87,8 @@ export async function PUT(request: NextRequest) {
         images: images || [],
         address,
         features: features || null,
+        generalInfo: generalInfo || null,
+        interiorDetails: interiorDetails || null,
       },
     });
 

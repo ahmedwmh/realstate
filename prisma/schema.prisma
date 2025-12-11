@@ -34,6 +34,8 @@ model Project {
   images      String[] // Array of image URLs
   address     String?
   features    Json?    // Store features as JSON
+  generalInfo Json?    // Store general information details as JSON array
+  interiorDetails Json? // Store interior details as JSON array
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
@@ -57,6 +59,100 @@ model News {
   image       String?
   isPinned    Boolean  @default(false) // true for fixed news, false for regular news
   order       Int      @default(0) // For ordering pinned news
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Benefit {
+  id          Int      @id @default(autoincrement())
+  titleEn     String
+  titleAr     String
+  descriptionEn String @db.Text
+  descriptionAr String @db.Text
+  image       String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  items       BenefitItem[]
+}
+
+model BenefitItem {
+  id          Int      @id @default(autoincrement())
+  benefitId   Int
+  titleEn     String
+  titleAr     String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  benefit     Benefit  @relation(fields: [benefitId], references: [id], onDelete: Cascade)
+  
+  @@index([benefitId])
+}
+
+model Fact {
+  id          Int      @id @default(autoincrement())
+  icon        String   // Icon name (e.g., "HappyHeart", "Building", "Medal")
+  title       String   // Number or text (e.g., "98%", "300+", "15")
+  descriptionEn String @db.Text
+  descriptionAr String @db.Text
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  icon        String   // Icon name (e.g., "House", "TrendUp", "Building")
+  titleEn     String
+  titleAr     String
+  descriptionEn String @db.Text
+  descriptionAr String @db.Text
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Showcase {
+  id          Int      @id @default(autoincrement())
+  titleEn     String
+  titleAr     String
+  descriptionEn String @db.Text
+  descriptionAr String @db.Text
+  thumbnailImage String
+  videoUrl    String   // YouTube embed URL or video URL
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Contact {
+  id          Int      @id @default(autoincrement())
+  titleEn     String
+  titleAr     String
+  descriptionEn String @db.Text
+  descriptionAr String @db.Text
+  officeAddressEn String
+  officeAddressAr String
+  phone       String
+  phone2      String?  // Additional phone number
+  email       String
+  facebook    String?  // Facebook URL
+  instagram   String?  // Instagram URL
+  whatsapp    String?  // WhatsApp number or URL
+  linkedin    String?  // LinkedIn URL
+  youtube     String?  // YouTube URL
+  taglineEn   String?  // Footer tagline in English
+  taglineAr   String?  // Footer tagline in Arabic
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactMessage {
+  id          Int      @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  phone       String
+  message     String   @db.Text
+  isRead      Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

@@ -1,8 +1,8 @@
+import React from "react";
 import cn from "classnames";
 import Image from "next/image";
 import styles from "./property-listing.module.css";
 import Link from "next/link";
-import PropertyFeatures from "../property-features";
 
 type PropertyListingProps = {
   item: {
@@ -20,22 +20,27 @@ type PropertyListingProps = {
   };
 };
 
-export default function PropertyListing({ item }: PropertyListingProps) {
+function PropertyListing({ item }: PropertyListingProps) {
+  const imageSrc = item.images?.[0] || "/images/intro.webp";
+  const isExternalImage = imageSrc.startsWith("http");
+
   return (
-    <div key={item.id} className={styles.listing}>
+    <div className={styles.listing}>
       <Link
         href={{
           pathname: "/property-detail",
-          query: { item: JSON.stringify(item) },
+          query: { id: item.id },
         }}
         className={styles.img_holder}
       >
         <Image
-          src={item.images && item.images[0] ? item.images[0] : "/images/intro.webp"}
+          src={imageSrc}
           alt={item.title}
           fill
           style={{ objectFit: "cover", objectPosition: "center" }}
-          unoptimized={item.images?.[0]?.startsWith("http")}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          unoptimized={isExternalImage}
+          loading="lazy"
         />
       </Link>
       <div className={styles.listing_wrapper}>
@@ -45,12 +50,9 @@ export default function PropertyListing({ item }: PropertyListingProps) {
         <div className={cn("paragraph-medium", styles.listing_description)}>
           {item.description}
         </div>
-
-        <PropertyFeatures
-          features={item.features}
-          className={styles.features}
-        />
       </div>
     </div>
   );
 }
+
+export default React.memo(PropertyListing);

@@ -158,6 +158,30 @@
       "news": {
         "title": "News",
         "description": "Manage news articles in both languages"
+      },
+      "benefits": {
+        "title": "Benefits",
+        "description": "Manage Why Choose Us and Benefits sections"
+      },
+      "facts": {
+        "title": "Facts",
+        "description": "Manage statistics and facts section"
+      },
+      "services": {
+        "title": "Services",
+        "description": "Manage Our Services section"
+      },
+      "showcase": {
+        "title": "Showcase",
+        "description": "Manage Experience Our Properties video section"
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Manage contact page information"
+      },
+      "messages": {
+        "title": "Contact Messages",
+        "description": "View messages from clients"
       }
     },
     "news": {
@@ -191,6 +215,32 @@
       "uploading": "Uploading...",
       "uploadError": "Failed to upload image",
       "saveError": "Failed to save news"
+    },
+    "contact": {
+      "title": "Contact Management",
+      "loading": "Loading...",
+      "add": "Add Contact",
+      "edit": "Edit Contact",
+      "addContact": "Add New Contact",
+      "editContact": "Edit Contact",
+      "noData": "No contact information configured. Click 'Add Contact' to create one.",
+      "titleEn": "English Title",
+      "titleAr": "Arabic Title",
+      "descriptionEn": "English Description",
+      "descriptionAr": "Arabic Description",
+      "officeAddressEn": "Office Address (English)",
+      "officeAddressAr": "Office Address (Arabic)",
+      "phone": "Phone",
+      "phone2": "Phone 2 (Optional)",
+      "phone2Placeholder": "Additional phone number",
+      "email": "Email",
+      "facebook": "Facebook URL (Optional)",
+      "instagram": "Instagram URL (Optional)",
+      "whatsapp": "WhatsApp Number (Optional)",
+      "whatsappPlaceholder": "e.g., 966501234567",
+      "whatsappHelp": "Enter phone number with country code (without +)",
+      "saving": "Saving...",
+      "saveError": "Failed to save contact"
     }
   },
   "news": {

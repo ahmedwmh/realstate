@@ -37,6 +37,7 @@
     align-items: center;
     justify-content: space-between;
     transition: all 0.3s ease;
+    gap: 16px;
 }
 
 .detail_head:hover {
@@ -56,6 +57,8 @@
     transform: translateY(-50%);
     transition: transform 0.3s;
     flex-shrink: 0;
+    width: 24px;
+    height: 24px;
 }
 
 [dir="rtl"] .detail_head svg {
@@ -69,6 +72,14 @@
 
 .detail_title {
     font-weight: 500;
+    flex: 1;
+    padding-right: 40px;
+}
+
+[dir="rtl"] .detail_title {
+    padding-right: 0;
+    padding-left: 40px;
+    text-align: right;
 }
 
 .list {

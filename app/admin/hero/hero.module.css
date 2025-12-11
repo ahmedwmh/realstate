@@ -5,7 +5,7 @@
 }
 
 .header {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto 2rem;
   display: flex;
   align-items: center;
@@ -100,77 +100,181 @@
 }
 
 .loading {
-  text-align: center;
-  padding: 4rem;
-  font-size: 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-family: var(--font-lbc-regular);
 }
 
-.slidesList {
-  max-width: 1200px;
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--gray-200);
+  border-top-color: var(--orange-600);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tableContainer {
+  max-width: 1400px;
   margin: 0 auto;
-  display: grid;
-  gap: 1.5rem;
-}
-
-.slideCard {
   background: var(--white);
-  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--gray-200);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 1.5rem;
-  align-items: start;
+  overflow: hidden;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.searchBar svg {
+  color: var(--gray-500);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
   transition: all 0.2s;
 }
 
-.slideCard:hover {
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.1);
-  border-color: var(--orange-300);
+.searchInput:focus {
+  outline: none;
+  border-color: var(--orange-600);
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
 }
 
-.slideImages {
+.clearButton {
+  background: var(--gray-200);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--gray-600);
+  transition: all 0.2s;
+  flex-shrink: 0;
 }
 
-.imageContainer {
-  position: relative;
+.clearButton:hover {
+  background: var(--gray-300);
+  color: var(--gray-800);
 }
 
-.image {
-  border-radius: 4px;
-  object-fit: cover;
+.tableWrapper {
+  overflow-x: auto;
 }
 
-.imageLabel {
-  display: block;
-  margin-top: 0.5rem;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: var(--gray-50);
+}
+
+.table th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--gray-900);
   font-size: 0.875rem;
-  color: #666;
-  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--gray-200);
+  white-space: nowrap;
 }
 
-.slideContent {
-  flex: 1;
+.table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-700);
+  font-size: 0.95rem;
 }
 
-.slideContent h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: #333;
+.table tbody tr {
+  transition: background 0.2s;
 }
 
-.slideContent p {
-  margin: 0.25rem 0;
-  color: #666;
+.table tbody tr:hover {
+  background: var(--gray-50);
 }
 
-.slideActions {
+.orderBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  background: linear-gradient(135deg, var(--orange-600) 0%, var(--orange-500) 100%);
+  color: white;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  min-width: 40px;
+  box-shadow: 0 2px 4px rgba(234, 88, 12, 0.2);
+}
+
+.imageCell {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableImage {
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.tableImage:hover {
+  transform: scale(1.05);
+}
+
+.titleCell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--gray-900);
+}
+
+.descriptionCell {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--gray-600);
+}
+
+.actionButtons {
+  display: flex;
   gap: 0.5rem;
 }
 
@@ -178,10 +282,12 @@
 .deleteButton {
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 0.875rem;
-  transition: background 0.2s;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .editButton {
@@ -191,15 +297,35 @@
 
 .editButton:hover {
   background: var(--orange-700);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(234, 88, 12, 0.3);
 }
 
 .deleteButton {
-  background: var(--danger-600);
+  background: #dc3545;
   color: white;
 }
 
 .deleteButton:hover {
-  background: var(--danger-700);
+  background: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+}
+
+.noData {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--gray-500);
+  font-size: 1rem;
+}
+
+.tableFooter {
+  padding: 1rem 1.5rem;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  text-align: right;
 }
 
 .modal {
@@ -214,55 +340,71 @@
   justify-content: center;
   z-index: 1000;
   padding: 2rem;
+  backdrop-filter: blur(4px);
 }
 
 .modalContent {
   background: white;
-  border-radius: 8px;
-  max-width: 900px;
+  border-radius: 12px;
+  max-width: 1000px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .modalHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  border-bottom: 1px solid #eee;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--gray-50);
 }
 
 .modalHeader h2 {
   margin: 0;
-  color: #333;
+  color: var(--gray-950);
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: var(--font-lbc-regular);
 }
 
 .closeButton {
   background: none;
   border: none;
-  font-size: 2rem;
   cursor: pointer;
-  color: #666;
+  color: var(--gray-600);
   line-height: 1;
-  padding: 0;
-  width: 2rem;
-  height: 2rem;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s;
 }
 
 .closeButton:hover {
-  color: #333;
+  color: var(--gray-900);
+  background: var(--gray-200);
+}
+
+.closeButton svg {
+  width: 20px;
+  height: 20px;
 }
 
 .form {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .formRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .formGroup {
@@ -273,56 +415,146 @@
 .formGroup label {
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #333;
+  color: var(--gray-900);
+  font-size: 0.95rem;
 }
 
 .formGroup input,
 .formGroup textarea {
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
+  transition: all 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--orange-600);
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
 }
 
 .formGroup textarea {
   resize: vertical;
+  min-height: 100px;
+}
+
+.fileUploadWrapper {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.fileInput {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.fileInputLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 2px dashed var(--gray-300);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+  font-weight: 500;
+  width: 100%;
+  justify-content: center;
+}
+
+.fileInputLabel:hover {
+  background: var(--gray-200);
+  border-color: var(--orange-600);
+  color: var(--orange-600);
+}
+
+.fileInputLabel svg {
+  flex-shrink: 0;
+}
+
+.uploadSpinner {
+  animation: spin 1s linear infinite;
+}
+
+.imagePreviewContainer {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--gray-200);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .previewImage {
-  margin-top: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ddd;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.helperText {
+  margin-top: 0.25rem;
+  color: var(--gray-500);
+  font-size: 0.875rem;
 }
 
 .formActions {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--gray-200);
 }
 
 .saveButton,
 .cancelButton {
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background 0.2s;
+  font-weight: 500;
+  transition: all 0.2s;
+  font-family: var(--font-lbc-regular);
 }
 
 .saveButton {
   background: linear-gradient(135deg, var(--orange-600) 0%, var(--orange-500) 100%);
   color: white;
   box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.saveButton:hover {
+.saveButton:hover:not(:disabled) {
   box-shadow: 0 6px 16px rgba(234, 88, 12, 0.4);
   transform: translateY(-1px);
+}
+
+.saveButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submitSpinner,
+.buttonSpinner {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+.cancelButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .cancelButton {
@@ -332,25 +564,73 @@
 
 .cancelButton:hover {
   background: var(--gray-700);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
-  .slideCard {
-    grid-template-columns: 1fr;
+  .container {
+    padding: 1rem;
   }
 
-  .slideImages {
-    flex-direction: row;
-    overflow-x: auto;
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .headerRight {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .addButton,
+  .logoutButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tableWrapper {
+    overflow-x: scroll;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .editButton,
+  .deleteButton {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .searchBar {
+    flex-wrap: wrap;
+  }
+
+  .searchInput {
+    min-width: 200px;
   }
 
   .formRow {
     grid-template-columns: 1fr;
   }
 
-  .header {
-    flex-direction: column;
-    align-items: stretch;
+  .modal {
+    padding: 1rem;
+  }
+
+  .modalContent {
+    max-height: 95vh;
+  }
+
+  .form {
+    padding: 1.5rem;
   }
 }
-

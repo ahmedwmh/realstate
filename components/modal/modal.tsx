@@ -2,7 +2,6 @@ import React from "react";
 import cn from "classnames";
 import styles from "./modal.module.css";
 import { createPortal } from "react-dom";
-import OutsideClickHandler from "react-outside-click-handler";
 
 type ModalProps = {
   children: React.ReactNode;
@@ -29,15 +28,21 @@ export default function Modal({
     };
   }, [visible]);
 
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   if (!visible) return null;
 
   return createPortal(
-    <>
+    <div className={styles.modalWrapper} onClick={handleOverlayClick}>
       <div className={cn(styles.overlay, className)} />
-      <OutsideClickHandler onOutsideClick={onClose}>
-        <div>{children}</div>
-      </OutsideClickHandler>
-    </>,
+      <div className={styles.modalBody} onClick={(e) => e.stopPropagation()}>
+        {children}
+      </div>
+    </div>,
     document.body,
   );
 }

@@ -77,19 +77,7 @@ export default function ProjectsList() {
       title,
       price: "",
       description: description.substring(0, 150) + "...",
-      features: project.features
-        ? Object.entries(project.features).map(([key, value], idx) => ({
-            id: idx + 1,
-            icon:
-              key === "bedrooms"
-                ? "double-bed"
-                : key === "bathrooms"
-                ? "bath"
-                : "ruler",
-            name: key === "bedrooms" ? "bd" : key === "bathrooms" ? "ba" : "sqft",
-            value: String(value),
-          }))
-        : [],
+      features: [],
     };
   };
 

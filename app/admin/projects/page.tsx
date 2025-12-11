@@ -16,6 +16,8 @@ interface Project {
   images: string[];
   address?: string;
   features?: any;
+  generalInfo?: any;
+  interiorDetails?: any;
 }
 
 export default function ProjectsAdmin() {
@@ -278,29 +280,48 @@ function ProjectForm({
     address: project?.address || "",
     images: project?.images || [] as string[],
     features: project?.features || null,
+    generalInfo: project?.generalInfo || { itemsEn: [""], itemsAr: [""] },
+    interiorDetails: project?.interiorDetails || { itemsEn: [""], itemsAr: [""] },
   });
 
   const [uploading, setUploading] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [oldImages, setOldImages] = useState<string[]>(project?.images || []);
 
   const categories = ["Houses", "Townhouses", "Condos", "Villas", "Commercial"];
+
+  const MAX_IMAGES = 15;
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
 
+    const currentImageCount = formData.images.length;
+    const remainingSlots = MAX_IMAGES - currentImageCount;
+    
+    if (remainingSlots <= 0) {
+      alert(`Maximum ${MAX_IMAGES} images allowed. Please remove some images first.`);
+      return;
+    }
+
+    const filesToUpload = Array.from(files).slice(0, remainingSlots);
+    
+    if (files.length > remainingSlots) {
+      alert(`Only ${remainingSlots} image(s) can be added. Maximum ${MAX_IMAGES} images allowed.`);
+    }
+
     setUploading(true);
     const uploadedUrls: string[] = [];
 
     try {
-      for (const file of Array.from(files)) {
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("folder", "projects");
+      for (const file of filesToUpload) {
+        const formDataUpload = new FormData();
+        formDataUpload.append("file", file);
+        formDataUpload.append("folder", "projects");
 
         const response = await fetch("/api/upload", {
           method: "POST",
-          body: formData,
+          body: formDataUpload,
         });
 
         const data = await response.json();
@@ -330,6 +351,7 @@ function ProjectForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
 
     try {
       const url = "/api/projects";
@@ -349,10 +371,12 @@ function ProjectForm({
       } else {
         const error = await response.json();
         alert(error.error || "Failed to save project");
+        setSubmitting(false);
       }
     } catch (error) {
       console.error("Error saving project:", error);
       alert("Error saving project");
+      setSubmitting(false);
     }
   };
 
@@ -436,15 +460,25 @@ function ProjectForm({
           </div>
 
           <div className={styles.formGroup}>
-            <label>Images</label>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+              <label>Images (Max {MAX_IMAGES})</label>
+              <span style={{ fontSize: "0.875rem", color: formData.images.length >= MAX_IMAGES ? "#dc3545" : "var(--gray-600)" }}>
+                {formData.images.length} / {MAX_IMAGES}
+              </span>
+            </div>
             <input
               type="file"
               accept="image/*"
               multiple
               onChange={handleImageUpload}
-              disabled={uploading}
+              disabled={uploading || formData.images.length >= MAX_IMAGES}
             />
-            {uploading && <p>Uploading...</p>}
+            {uploading && <p style={{ marginTop: "0.5rem", color: "var(--gray-600)" }}>Uploading...</p>}
+            {formData.images.length >= MAX_IMAGES && (
+              <p style={{ marginTop: "0.5rem", color: "#dc3545", fontSize: "0.875rem" }}>
+                Maximum {MAX_IMAGES} images reached. Remove images to add more.
+              </p>
+            )}
             {formData.images.length > 0 && (
               <div className={styles.imagesGrid}>
                 {formData.images.map((img, idx) => (
@@ -460,21 +494,137 @@ function ProjectForm({
                       type="button"
                       onClick={() => handleRemoveImage(idx)}
                       className={styles.removeImageButton}
+                      title="Remove image"
                     >
                       ×
                     </button>
+                    <div className={styles.imageNumber}>{idx + 1}</div>
                   </div>
                 ))}
               </div>
             )}
           </div>
 
+          {/* General Information Section */}
+          <div className={styles.formGroup}>
+            <label style={{ fontSize: "1.1rem", fontWeight: "600", marginBottom: "1rem", display: "block" }}>
+              General Information (معلومات عامة)
+            </label>
+            <div className={styles.formRow}>
+              <div className={styles.formGroup} style={{ flex: 1 }}>
+                <label>English Items (one per line)</label>
+                <textarea
+                  value={Array.isArray(formData.generalInfo?.itemsEn) ? formData.generalInfo.itemsEn.join('\n') : (formData.generalInfo?.itemsEn || '')}
+                  onChange={(e) => {
+                    const items = e.target.value.split('\n').filter(item => item.trim() !== '');
+                    setFormData({
+                      ...formData,
+                      generalInfo: {
+                        ...formData.generalInfo,
+                        itemsEn: items.length > 0 ? items : [''],
+                        itemsAr: formData.generalInfo?.itemsAr || ['']
+                      }
+                    });
+                  }}
+                  rows={6}
+                  placeholder="Enter each item on a new line"
+                />
+              </div>
+              <div className={styles.formGroup} style={{ flex: 1 }}>
+                <label>Arabic Items (عنصر واحد في كل سطر)</label>
+                <textarea
+                  value={Array.isArray(formData.generalInfo?.itemsAr) ? formData.generalInfo.itemsAr.join('\n') : (formData.generalInfo?.itemsAr || '')}
+                  onChange={(e) => {
+                    const items = e.target.value.split('\n').filter(item => item.trim() !== '');
+                    setFormData({
+                      ...formData,
+                      generalInfo: {
+                        ...formData.generalInfo,
+                        itemsEn: formData.generalInfo?.itemsEn || [''],
+                        itemsAr: items.length > 0 ? items : ['']
+                      }
+                    });
+                  }}
+                  rows={6}
+                  placeholder="أدخل كل عنصر في سطر جديد"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Interior Details Section */}
+          <div className={styles.formGroup}>
+            <label style={{ fontSize: "1.1rem", fontWeight: "600", marginBottom: "1rem", display: "block" }}>
+              Interior Details (تفاصيل داخلية)
+            </label>
+            <div className={styles.formRow}>
+              <div className={styles.formGroup} style={{ flex: 1 }}>
+                <label>English Items (one per line)</label>
+                <textarea
+                  value={Array.isArray(formData.interiorDetails?.itemsEn) ? formData.interiorDetails.itemsEn.join('\n') : (formData.interiorDetails?.itemsEn || '')}
+                  onChange={(e) => {
+                    const items = e.target.value.split('\n').filter(item => item.trim() !== '');
+                    setFormData({
+                      ...formData,
+                      interiorDetails: {
+                        ...formData.interiorDetails,
+                        itemsEn: items.length > 0 ? items : [''],
+                        itemsAr: formData.interiorDetails?.itemsAr || ['']
+                      }
+                    });
+                  }}
+                  rows={6}
+                  placeholder="Enter each item on a new line"
+                />
+              </div>
+              <div className={styles.formGroup} style={{ flex: 1 }}>
+                <label>Arabic Items (عنصر واحد في كل سطر)</label>
+                <textarea
+                  value={Array.isArray(formData.interiorDetails?.itemsAr) ? formData.interiorDetails.itemsAr.join('\n') : (formData.interiorDetails?.itemsAr || '')}
+                  onChange={(e) => {
+                    const items = e.target.value.split('\n').filter(item => item.trim() !== '');
+                    setFormData({
+                      ...formData,
+                      interiorDetails: {
+                        ...formData.interiorDetails,
+                        itemsEn: formData.interiorDetails?.itemsEn || [''],
+                        itemsAr: items.length > 0 ? items : ['']
+                      }
+                    });
+                  }}
+                  rows={6}
+                  placeholder="أدخل كل عنصر في سطر جديد"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </div>
+
           <div className={styles.formActions}>
-            <button type="submit" className={styles.saveButton}>
-              {project ? "Update" : "Create"}
-            </button>
-            <button type="button" onClick={onClose} className={styles.cancelButton}>
+            <button type="button" onClick={onClose} className={styles.cancelButton} disabled={submitting || uploading}>
               Cancel
+            </button>
+            <button type="submit" className={styles.saveButton} disabled={submitting || uploading}>
+              {submitting ? (
+                <>
+                  <svg className={styles.buttonSpinner} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2v4" />
+                  </svg>
+                  {project ? "Updating..." : "Creating..."}
+                </>
+              ) : uploading ? (
+                <>
+                  <svg className={styles.buttonSpinner} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2v4" />
+                  </svg>
+                  Uploading Images...
+                </>
+              ) : (
+                project ? "Update Project" : "Create Project"
+              )}
             </button>
           </div>
         </form>

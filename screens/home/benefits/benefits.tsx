@@ -1,81 +1,101 @@
-import React from "react";
+"use client";
+
+import React, { useMemo } from "react";
 import styles from "./benefits.module.css";
 import cn from "classnames";
 import { Heading } from "@/components/typography";
 import Image from "next/image";
 import { Checkmark } from "@/constants/icons";
 import Link from "next/link";
+import { useLanguage } from "@/context/language-context";
+import { useApiFetch } from "@/hooks/useApiFetch";
+import type { Benefit } from "@/types";
 
-const benefits = [
-  {
-    id: 1,
-    title: "Why choose us?",
-    description:
-      "We are committed to providing exceptional service and unparallaled expertise in the real estate market. Our features are designed to ensure a smooth and rewarding experience for our clients, whether you are buying, selling, or investing.",
-    image: "/images/benefit-1.webp",
-    items: [
-      {
-        id: 1,
-        title: "Expert agents",
-      },
-      {
-        id: 2,
-        title: "Comprehensive listings",
-      },
-      {
-        id: 3,
-        title: "Personalized service",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Benefits of choosing Al Hulool Al Muthla",
-    description:
-      "We offer a range of benefits that set us apart from other real estate agencies. Our team of experts will guide you through the process, ensuring you get the best deal possible.",
-    image: "/images/benefit-2.webp",
-    items: [
-      {
-        id: 1,
-        title: "Tailored approach",
-      },
-      {
-        id: 2,
-        title: "Extensive network",
-      },
-      {
-        id: 3,
-        title: "Proven track record",
-      },
-    ],
-  },
-];
+// Stable transform function to prevent re-renders
+const transformBenefits = (data: any): Benefit[] => {
+  return Array.isArray(data) ? data : [];
+};
 
-export default function Benefits() {
+function Benefits() {
+  const { language } = useLanguage();
+  const { data: benefitsData, loading } = useApiFetch<Benefit[]>({
+    endpoint: "/api/benefits",
+    cache: "no-store",
+    transform: transformBenefits,
+  });
+
+  // Ensure benefits is always an array - must be called before any conditional returns
+  const benefits = useMemo(() => {
+    return Array.isArray(benefitsData) ? benefitsData : [];
+  }, [benefitsData]);
+
+  // Memoize benefits for rendering - must be called before any conditional returns
+  const memoizedBenefits = useMemo(() => benefits, [benefits]);
+
+  if (loading) {
+    return (
+      <section className={cn("section")}>
+        {[...Array(2)].map((_, index) => (
+          <div key={index} className={cn("container", styles.container)}>
+            <div className={styles.image}>
+              <div className={styles.skeletonImage} />
+            </div>
+            <div className={styles.content}>
+              <div className={styles.skeletonTitle} />
+              <div className={styles.skeletonDescription} />
+              <div className={styles.skeletonDescription} style={{ width: "90%" }} />
+              <div className={styles.skeletonDescription} style={{ width: "70%" }} />
+              <ul className={styles.list}>
+                {[...Array(3)].map((_, i) => (
+                  <li key={i} className={styles.item}>
+                    <div className={styles.skeletonIcon} />
+                    <div className={styles.skeletonText} />
+                  </li>
+                ))}
+              </ul>
+              <div className={styles.skeletonButton} />
+            </div>
+          </div>
+        ))}
+      </section>
+    );
+  }
+
+  if (memoizedBenefits.length === 0) {
+    return null;
+  }
+
   return (
     <section className={cn("section")}>
-      {benefits.map((benefit) => (
+      {memoizedBenefits.map((benefit) => {
+        const title = language === "ar" ? benefit.titleAr : benefit.titleEn;
+        const description = language === "ar" ? benefit.descriptionAr : benefit.descriptionEn;
+        
+        return (
         <div key={benefit.id} className={cn("container", styles.container)}>
           <div className={styles.image}>
+              {benefit.image && (
             <Image
               src={benefit.image}
-              alt="Benefits"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <div className={styles.content}>
-            <Heading type="heading-3">{benefit.title}</Heading>
-            <div className={cn("paragraph-large", styles.subtitle)}>
-              {benefit.description}
+                  alt={title}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized={benefit.image?.startsWith("http") || false}
+                  loading="lazy"
+                />
+              )}
             </div>
+            <div className={styles.content}>
+              <Heading type="heading-3">{title}</Heading>
+              <div className={cn("paragraph-large", styles.subtitle)}>{description}</div>
 
             <ul className={styles.list}>
               {benefit.items.map((item) => (
                 <li key={item.id} className={styles.item}>
                   <div className={styles.icon}>{Checkmark}</div>
                   <div className={cn("paragraph-medium", styles.text)}>
-                    {item.title}
+                      {language === "ar" ? item.titleAr : item.titleEn}
                   </div>
                 </li>
               ))}
@@ -86,7 +106,10 @@ export default function Benefits() {
             </Link>
           </div>
         </div>
-      ))}
+        );
+      })}
     </section>
   );
 }
+
+export default React.memo(Benefits);

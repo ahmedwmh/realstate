@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import cn from "classnames";
 import styles from "./latest-listings.module.css";
 import { Heading } from "@/components/typography";
@@ -8,69 +8,63 @@ import { Dropdown } from "@/components/elements";
 import PropertyListing from "@/components/property-listing";
 import Link from "next/link";
 import { useLanguage } from "@/context/language-context";
+import { useApiFetch } from "@/hooks/useApiFetch";
+import type { Project } from "@/types";
 
-interface Project {
-  id: number;
-  titleEn: string;
-  titleAr: string;
-  descriptionEn: string;
-  descriptionAr: string;
-  category: string;
-  images: string[];
-  address?: string;
-  features?: any;
-}
+// Stable transform function to prevent re-renders
+const transformProjects = (data: any): Project[] => {
+  return Array.isArray(data) ? data : [];
+};
 
-export default function LatestListings() {
+function LatestListings() {
   const { language, t } = useLanguage();
-  const [projects, setProjects] = React.useState<Project[]>([]);
-  const [loading, setLoading] = React.useState(true);
   const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const { data: projectsData, loading } = useApiFetch<Project[]>({
+    endpoint: "/api/projects",
+    cache: "force-cache",
+    transform: transformProjects,
+  });
 
-  React.useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
-    try {
-      const response = await fetch("/api/projects");
-      if (response.ok) {
-        const data = await response.json();
-        setProjects(Array.isArray(data) ? data : []);
-      }
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Ensure projects is always an array
+  const projects = React.useMemo(() => {
+    return Array.isArray(projectsData) ? projectsData : [];
+  }, [projectsData]);
 
   // Get unique categories
-  const categories = React.useMemo(() => {
+  const categories = useMemo(() => {
+    if (!Array.isArray(projects) || projects.length === 0) {
+      return ["All"];
+    }
     const cats = Array.from(new Set(projects.map((p) => p.category)));
     return ["All", ...cats];
   }, [projects]);
 
   // Translate category names
-  const getCategoryLabel = React.useCallback((category: string) => {
+  const getCategoryLabel = useCallback((category: string) => {
     return t(`listings.categories.${category}`) || category;
   }, [t]);
 
-  const dropdownOptions = categories.map((cat) => ({
-    value: cat,
-    label: getCategoryLabel(cat),
-  }));
+  const dropdownOptions = useMemo(() => {
+    return categories.map((cat) => ({
+      value: cat,
+      label: getCategoryLabel(cat),
+    }));
+  }, [categories, getCategoryLabel]);
 
-  const handleDropdownChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleDropdownChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategory(e.target.value);
-  };
+  }, []);
 
-  const filteredProjects = React.useMemo(() => {
+  const handleCategoryClick = useCallback((cat: string) => {
+    setSelectedCategory(cat);
+  }, []);
+
+  const filteredProjects = useMemo(() => {
     if (selectedCategory === "All") return projects.slice(0, 6);
     return projects.filter((p) => p.category === selectedCategory).slice(0, 6);
   }, [projects, selectedCategory]);
 
-  const convertProjectToItem = (project: Project) => {
+  const convertProjectToItem = useCallback((project: Project) => {
     const title = language === "ar" ? project.titleAr : project.titleEn;
     const description = language === "ar" ? project.descriptionAr : project.descriptionEn;
     
@@ -80,14 +74,9 @@ export default function LatestListings() {
       title,
       price: "",
       description: description.substring(0, 150) + "...",
-      features: project.features ? Object.entries(project.features).map(([key, value], idx) => ({
-        id: idx + 1,
-        icon: key === "bedrooms" ? "double-bed" : key === "bathrooms" ? "bath" : "ruler",
-        name: key === "bedrooms" ? "bd" : key === "bathrooms" ? "ba" : "sqft",
-        value: String(value),
-      })) : [],
+      features: [],
     };
-  };
+  }, [language]);
 
   return (
     <section className={cn("section")}>
@@ -144,7 +133,7 @@ export default function LatestListings() {
                     className={cn("label-medium", styles.tab, {
                       [styles.active]: cat === selectedCategory,
                     })}
-                    onClick={() => setSelectedCategory(cat)}
+                    onClick={() => handleCategoryClick(cat)}
                   >
                     {getCategoryLabel(cat)}
                   </div>
@@ -167,3 +156,5 @@ export default function LatestListings() {
     </section>
   );
 }
+
+export default React.memo(LatestListings);

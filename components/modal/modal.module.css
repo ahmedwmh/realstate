@@ -1,13 +1,30 @@
-.overlay {
+.modalWrapper {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
     opacity: 0;
-    z-index: 99;
     animation: showModal 0.3s ease-in-out forwards;
+}
+
+.modalBody {
+    position: relative;
+    z-index: 10000;
+    pointer-events: auto;
 }
 
 @keyframes showModal {
@@ -18,3 +35,4 @@
         opacity: 1;
     }
 }
+

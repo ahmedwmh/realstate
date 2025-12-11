@@ -53,6 +53,32 @@ async function main() {
         bathrooms: 2,
         sqft: 2500,
       },
+      generalInfo: {
+        itemsEn: [
+          "This beautifully designed project offers a fantastic opportunity for a serene and spacious living environment in the desirable Serenity Lane community.",
+          "The home features a light and bright floor plan with a large living room, dining area, and a spacious kitchen with a breakfast bar and plenty of cabinet and counter space.",
+          "The master bedroom is large and comfortable, and the master bath features a large tub/shower combo.",
+          "The second and third bedrooms are also spacious and comfortable, perfect for families or guests.",
+        ],
+        itemsAr: [
+          "يوفر هذا المشروع المصمم بشكل جميل فرصة رائعة لبيئة معيشة هادئة وواسعة في مجتمع سيرينيتي لين المرغوب فيه.",
+          "يتميز المنزل بخطة أرضية مضيئة ومشرقة مع غرفة معيشة كبيرة ومنطقة طعام ومطبخ واسع مع بار إفطار والكثير من مساحة الخزائن والعدادات.",
+          "الغرفة الرئيسية كبيرة ومريحة، وتتميز الحمام الرئيسي بحوض استحمام/دش كبير.",
+          "الغرفتان الثانية والثالثة أيضًا واسعتان ومريحتان، مثالية للعائلات أو الضيوف.",
+        ],
+      },
+      interiorDetails: {
+        itemsEn: [
+          "Modern kitchen with stainless steel appliances and granite countertops.",
+          "Hardwood flooring throughout the main living areas.",
+          "Large windows providing abundant natural light.",
+        ],
+        itemsAr: [
+          "مطبخ حديث مع أجهزة من الفولاذ المقاوم للصدأ وأسطح من الجرانيت.",
+          "أرضيات خشبية صلبة في جميع مناطق المعيشة الرئيسية.",
+          "نوافذ كبيرة توفر إضاءة طبيعية وفيرة.",
+        ],
+      },
     },
     {
       titleEn: "Harmony Drive Modern Villas",
@@ -70,6 +96,34 @@ async function main() {
         bedrooms: 4,
         bathrooms: 3,
         sqft: 3500,
+      },
+      generalInfo: {
+        itemsEn: [
+          "Luxurious modern villas with contemporary architecture and premium finishes throughout.",
+          "Each villa includes a private garden and outdoor entertainment area perfect for family gatherings.",
+          "Spacious open-plan living areas with high ceilings and large windows.",
+          "Premium location in Beverly Hills with easy access to shopping, dining, and entertainment.",
+        ],
+        itemsAr: [
+          "فلل حديثة فاخرة مع هندسة معمارية معاصرة وتشطيبات فاخرة في جميع أنحاء المنزل.",
+          "تتضمن كل فيلا حديقة خاصة ومنطقة ترفيه خارجية مثالية لتجمعات العائلة.",
+          "مناطق معيشة واسعة مفتوحة مع أسقف عالية ونوافذ كبيرة.",
+          "موقع فاخر في بيفرلي هيلز مع سهولة الوصول إلى التسوق والمطاعم والترفيه.",
+        ],
+      },
+      interiorDetails: {
+        itemsEn: [
+          "Smart home technology integrated throughout with automated lighting, climate control, and security systems.",
+          "Premium kitchen with Italian marble countertops and professional-grade appliances.",
+          "Master suite with walk-in closet and spa-like bathroom with jacuzzi.",
+          "Home theater and entertainment room for family enjoyment.",
+        ],
+        itemsAr: [
+          "تكنولوجيا المنزل الذكي مدمجة في جميع أنحاء المنزل مع إضاءة آلية ومراقبة المناخ وأنظمة الأمان.",
+          "مطبخ فاخر مع أسطح رخام إيطالي وأجهزة احترافية.",
+          "جناح رئيسي مع خزانة ملابس كبيرة وحمام يشبه المنتجع الصحي مع جاكوزي.",
+          "مسرح منزلي وغرفة ترفيه للاستمتاع العائلي.",
+        ],
       },
     },
     {
@@ -89,6 +143,34 @@ async function main() {
         bathrooms: 2,
         sqft: 1800,
       },
+      generalInfo: {
+        itemsEn: [
+          "Modern townhouses designed for urban living with contemporary style and functionality.",
+          "Prime location in San Francisco with excellent public transportation access.",
+          "Community amenities include shared courtyard, fitness center, and parking facilities.",
+          "Energy-efficient design with solar panels and smart home features.",
+        ],
+        itemsAr: [
+          "تاون هاوس حديثة مصممة للعيش الحضري مع أسلوب معاصر ووظيفية.",
+          "موقع ممتاز في سان فرانسيسكو مع وصول ممتاز لوسائل النقل العام.",
+          "تشمل مرافق المجتمع فناء مشترك ومركز لياقة بدنية ومرافق وقوف السيارات.",
+          "تصميم موفر للطاقة مع ألواح شمسية وميزات المنزل الذكي.",
+        ],
+      },
+      interiorDetails: {
+        itemsEn: [
+          "Open-concept living space with modern finishes and natural light.",
+          "Rooftop terrace with city views, perfect for entertaining or relaxation.",
+          "Modern kitchen with quartz countertops and energy-efficient appliances.",
+          "Spacious bedrooms with ample storage and modern bathroom fixtures.",
+        ],
+        itemsAr: [
+          "مساحة معيشة مفتوحة مع تشطيبات حديثة وإضاءة طبيعية.",
+          "شرفة على السطح مع إطلالات على المدينة، مثالية للترفيه أو الاسترخاء.",
+          "مطبخ حديث مع أسطح كوارتز وأجهزة موفرة للطاقة.",
+          "غرف نوم واسعة مع تخزين وفير وتركيبات حمام حديثة.",
+        ],
+      },
     },
     {
       titleEn: "Downtown Commercial Complex",
@@ -105,6 +187,34 @@ async function main() {
       features: {
         sqft: 10000,
         units: 20,
+      },
+      generalInfo: {
+        itemsEn: [
+          "Prime commercial location in the heart of New York's business district with high foot traffic.",
+          "Modern building with state-of-the-art facilities and professional management.",
+          "Flexible floor plans suitable for offices, retail, restaurants, or mixed-use purposes.",
+          "Excellent connectivity with multiple subway lines and bus routes nearby.",
+        ],
+        itemsAr: [
+          "موقع تجاري ممتاز في قلب منطقة الأعمال في نيويورك مع حركة مرور عالية.",
+          "مبنى حديث مع مرافق حديثة وإدارة احترافية.",
+          "خطط أرضية مرنة مناسبة للمكاتب والتجارة والمطاعم أو الاستخدامات المختلطة.",
+          "اتصال ممتاز مع خطوط مترو أنفاق متعددة وطرق حافلات قريبة.",
+        ],
+      },
+      interiorDetails: {
+        itemsEn: [
+          "Modern office spaces with floor-to-ceiling windows and open layouts.",
+          "Retail units with storefront windows and high visibility from the street.",
+          "Professional-grade HVAC systems and high-speed internet infrastructure.",
+          "Ample parking facilities and loading docks for commercial operations.",
+        ],
+        itemsAr: [
+          "مساحات مكتبية حديثة مع نوافذ من الأرض إلى السقف وتخطيطات مفتوحة.",
+          "وحدات تجارية مع نوافذ واجهة متجر ووضوح عالي من الشارع.",
+          "أنظمة تكييف هواء احترافية وبنية تحتية إنترنت عالية السرعة.",
+          "مرافق وقوف سيارات واسعة وأرصفة تحميل للعمليات التجارية.",
+        ],
       },
     },
     {
@@ -123,6 +233,34 @@ async function main() {
         bedrooms: 1,
         bathrooms: 1,
         sqft: 800,
+      },
+      generalInfo: {
+        itemsEn: [
+          "Modern apartment complex in a peaceful suburban setting with easy access to downtown Chicago.",
+          "Well-maintained community with professional on-site management and maintenance staff.",
+          "Pet-friendly building with nearby parks and walking trails.",
+          "Close proximity to schools, shopping centers, and healthcare facilities.",
+        ],
+        itemsAr: [
+          "مجمع شقق حديث في إعداد ضاحوي هادئ مع سهولة الوصول إلى وسط مدينة شيكاغو.",
+          "مجتمع محافظ عليه جيدًا مع إدارة احترافية في الموقع وطاقم صيانة.",
+          "مبنى صديق للحيوانات الأليفة مع حدائق قريبة ومسارات للمشي.",
+          "قرب من المدارس ومراكز التسوق والمرافق الصحية.",
+        ],
+      },
+      interiorDetails: {
+        itemsEn: [
+          "Spacious apartments with modern layouts and efficient use of space.",
+          "Updated kitchens with stainless steel appliances and ample cabinet storage.",
+          "Large windows providing natural light and views of the surrounding area.",
+          "In-unit laundry facilities and climate control for year-round comfort.",
+        ],
+        itemsAr: [
+          "شقق واسعة مع تخطيطات حديثة واستخدام فعال للمساحة.",
+          "مطابخ محدثة مع أجهزة من الفولاذ المقاوم للصدأ وتخزين خزائن وفير.",
+          "نوافذ كبيرة توفر إضاءة طبيعية وإطلالات على المنطقة المحيطة.",
+          "مرافق غسيل داخل الوحدة ومراقبة المناخ للراحة على مدار السنة.",
+        ],
       },
     },
   ];

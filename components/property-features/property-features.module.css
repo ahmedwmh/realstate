@@ -7,11 +7,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    gap: 8px;
-}
-
-.feature svg {
-    stroke: var(--slate-500);
 }
 
 .feature:not(:first-child)::before {

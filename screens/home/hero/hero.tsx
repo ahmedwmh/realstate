@@ -87,7 +87,7 @@ export default function Hero() {
 
       const response = await fetch("/api/hero", {
         signal: controller.signal,
-        cache: "force-cache" // Use cached data when available
+        cache: "no-store" // Always fetch fresh data to show updates immediately
       });
 
       clearTimeout(timeoutId);
@@ -235,16 +235,18 @@ export default function Hero() {
                   transition={{ duration: 0.5 }}
                   className={styles.sliderImage}
                 >
+                  {currentSlideData.mainImage && (
                   <Image
                     src={currentSlideData.mainImage}
                     alt={title}
                     fill
                     style={{ objectFit: "cover" }}
                     priority={currentSlide === 0}
-                    unoptimized={currentSlideData.mainImage.startsWith("http")}
+                      unoptimized={currentSlideData.mainImage?.startsWith("http") || false}
                     loading={currentSlide === 0 ? "eager" : "lazy"}
                     quality={90}
                   />
+                  )}
                 </motion.div>
               </AnimatePresence>
 
@@ -300,15 +302,17 @@ export default function Hero() {
                 </p>
 
                 <div className={styles.contentImage}>
+                  {currentSlideData.contentImage && (
                   <Image
                     src={currentSlideData.contentImage}
                     alt={title}
                     fill
                     style={{ objectFit: "cover" }}
-                    unoptimized={currentSlideData.contentImage.startsWith("http")}
+                      unoptimized={currentSlideData.contentImage?.startsWith("http") || false}
                     loading="lazy"
                     quality={85}
                   />
+                  )}
                 </div>
               </motion.div>
             </AnimatePresence>

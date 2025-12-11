@@ -25,10 +25,18 @@ export default function Hero({ project }: HeroProps) {
     <section className={cn("section", styles.section)}>
       <div className={cn("container")}>
         <div className={styles.content}>
-          <div>
-            <div className={cn("heading-2", styles.title)}>{title}</div>
+          <div className={styles.titleWrapper}>
+            {language === "ar" ? (
+              <div className={cn("heading-2", styles.title, styles.titleAr)} dir="rtl">
+                {project.titleAr}
+              </div>
+            ) : (
+              <div className={cn("heading-2", styles.title, styles.titleEn)} dir="ltr">
+                {project.titleEn}
+              </div>
+            )}
             {project.address && (
-            <div className={cn("paragraph-large", styles.address)}>
+            <div className={cn("paragraph-large", styles.address)} dir="ltr">
                 {project.address}
             </div>
             )}

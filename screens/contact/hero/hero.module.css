@@ -36,31 +36,101 @@
     color: var(--slate-500);
 }
 
-.map {
-    margin-top: 80px;
+.contact_link {
+    color: var(--slate-500);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact_link:hover {
+    color: var(--black);
+}
+
+.socialLinks {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--slate-100);
+    color: var(--slate-600);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.socialLink:hover {
+    background: var(--slate-200);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+.socialLink svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    fill: currentColor;
 }
 
 .form {
     margin-top: 80px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 24px;
 }
 
 .rowFields {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 8px;
+    gap: 24px;
 }
 
-.agreeText {
-    color: var(--slate-500);
+.formActions {
+    display: flex;
+    justify-content: flex-start;
 }
 
-.agreeText span {
-    font-weight: 500;
-    color: var(--black);
+.button {
+    min-width: 200px;
+}
+
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skeletonTitle {
+    height: 32px;
+    width: 200px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+.skeletonDescription {
+    height: 20px;
+    width: 100%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 @media (max-width: 1024px) {

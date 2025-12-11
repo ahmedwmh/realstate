@@ -4,9 +4,7 @@ import React from "react";
 import styles from "./overview.module.css";
 import cn from "classnames";
 import { Heading } from "@/components/typography";
-import PropertyFeatures from "@/components/property-features";
 import { Plus } from "@/constants/icons";
-import AgentForm from "@/components/agent-form";
 import { useLanguage } from "@/context/language-context";
 
 type OverviewProps = {
@@ -23,6 +21,14 @@ type OverviewProps = {
       name: string;
       value: string | number;
     }[] | null;
+    generalInfo?: {
+      itemsEn?: string[];
+      itemsAr?: string[];
+    } | null;
+    interiorDetails?: {
+      itemsEn?: string[];
+      itemsAr?: string[];
+    } | null;
   };
 };
 
@@ -31,46 +37,28 @@ export default function Overview({ project }: OverviewProps) {
   const [open, setOpen] = React.useState<number | null>(null);
 
   const description = language === "ar" ? project.descriptionAr : project.descriptionEn;
-  const features = project.features || [];
+
+  // Get dynamic details from project data
+  const generalInfoItems = language === "ar" 
+    ? (project.generalInfo?.itemsAr || [])
+    : (project.generalInfo?.itemsEn || []);
+  
+  const interiorDetailsItems = language === "ar"
+    ? (project.interiorDetails?.itemsAr || [])
+    : (project.interiorDetails?.itemsEn || []);
 
   const details = [
     {
       id: 1,
       titleKey: "propertyDetail.generalInformation",
-      features: [
-        {
-          id: 1,
-          textKey: "propertyDetail.generalInfoText1",
-        },
-        {
-          id: 2,
-          textKey: "propertyDetail.generalInfoText2",
-        },
-        {
-          id: 3,
-          textKey: "propertyDetail.generalInfoText3",
-        },
-        {
-          id: 4,
-          textKey: "propertyDetail.generalInfoText4",
-        },
-      ],
+      items: generalInfoItems,
     },
     {
       id: 2,
       titleKey: "propertyDetail.interiorDetails",
-      features: [
-        {
-          id: 1,
-          textKey: "propertyDetail.interiorText1",
-        },
-        {
-          id: 2,
-          textKey: "propertyDetail.interiorText2",
-        },
-      ],
+      items: interiorDetailsItems,
     },
-  ];
+  ].filter(detail => detail.items.length > 0); // Only show sections with items
 
   const toggleOpen = (id: number) => {
     setOpen((prevId) => (prevId === id ? null : id));
@@ -85,13 +73,6 @@ export default function Overview({ project }: OverviewProps) {
           <div className={cn("paragraph-medium", styles.description)}>
               {description}
           </div>
-          )}
-
-          {features.length > 0 && (
-          <PropertyFeatures
-            className={styles.features}
-              features={features}
-          />
           )}
 
           <div className={styles.details}>
@@ -112,12 +93,12 @@ export default function Overview({ project }: OverviewProps) {
 
                 {open === detail.id && (
                   <ul className={styles.list}>
-                    {detail.features.map((feature) => (
+                    {detail.items.map((item, index) => (
                       <li
-                        key={feature.id}
+                        key={index}
                         className={cn("paragraph-medium", styles.list_item)}
                       >
-                        {t(feature.textKey)}
+                        {item}
                       </li>
                     ))}
                   </ul>
@@ -125,13 +106,6 @@ export default function Overview({ project }: OverviewProps) {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className={styles.agent}>
-          <AgentForm
-            className={styles.form}
-            inputClassName={styles.textfield}
-          />
         </div>
       </div>
     </section>
