@@ -52,6 +52,13 @@
       "Houses": "Houses"
     }
   },
+  "home": {
+    "pinnedNews": {
+      "title": "Latest News",
+      "subtitle": "Stay updated with our latest news and updates",
+      "viewAll": "View All News"
+    }
+  },
   "propertyDetail": {
     "overview": "Overview",
     "generalInformation": "General Information",

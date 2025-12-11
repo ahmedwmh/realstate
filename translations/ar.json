@@ -52,6 +52,13 @@
       "Houses": "منازل"
     }
   },
+  "home": {
+    "pinnedNews": {
+      "title": "آخر الأخبار",
+      "subtitle": "تابع آخر الأخبار والتحديثات من شركتنا",
+      "viewAll": "عرض جميع الأخبار"
+    }
+  },
   "propertyDetail": {
     "overview": "نظرة عامة",
     "generalInformation": "معلومات عامة",

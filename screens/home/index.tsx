@@ -6,6 +6,9 @@ import Hero from "./hero";
 const LatestListings = dynamic(() => import("./latest-listings"), {
   loading: () => null,
 });
+const PinnedNews = dynamic(() => import("./pinned-news"), {
+  loading: () => null,
+});
 const Benefits = dynamic(() => import("./benefits"), {
   loading: () => null,
 });
@@ -24,6 +27,7 @@ export default function HomePage() {
     <Layout>
       <Hero />
       <LatestListings />
+      <PinnedNews />
       <Benefits />
       <Showcase />
       <Facts />
